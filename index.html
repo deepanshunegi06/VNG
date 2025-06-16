@@ -249,9 +249,7 @@
             display: grid;
             gap: 24px;
             margin-top: 80px;
-        }
-
-        .job-card {
+        }        .job-card {
             background: white;
             padding: 40px;
             border-radius: 20px;
@@ -259,8 +257,9 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             border: 1px solid #f1f5f9;
+            gap: 32px;
         }
 
         .job-card:hover {
@@ -269,11 +268,29 @@
             border-color: #e2e8f0;
         }
 
+        .job-info {
+            flex: 1;
+        }
+
         .job-info h3 {
             font-size: 1.5rem;
             margin-bottom: 12px;
             color: #1a202c;
             font-weight: 600;
+        }
+
+        .job-salary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #059669;
+            margin-bottom: 16px;
+        }
+
+        .job-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
         }
 
         .job-meta {
@@ -292,6 +309,36 @@
             font-weight: 500;
         }
 
+        .job-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .view-details-btn {
+            background: white;
+            color: #3b82f6;
+            padding: 12px 24px;
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .view-details-btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+        }
+
         .apply-btn {
             background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
             color: white;
@@ -303,12 +350,187 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 1rem;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+            min-width: 140px;
         }
 
         .apply-btn:hover {
             background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Job Description Modal */
+        .job-description-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .job-description-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+
+        .job-modal-content {
+            background: white;
+            padding: 0;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .job-description-modal.show .job-modal-content {
+            transform: scale(1);
+        }
+
+        .job-modal-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            padding: 32px 40px;
+            position: relative;
+        }
+
+        .job-modal-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .job-modal-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .job-modal-meta span {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .job-modal-salary {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fbbf24;
+            margin-top: 8px;
+        }
+
+        .job-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .job-modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .job-modal-body {
+            padding: 40px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .job-section {
+            margin-bottom: 32px;
+        }
+
+        .job-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .job-section-icon {
+            font-size: 1.2rem;
+        }
+
+        .job-description-text {
+            color: #4b5563;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 24px;
+        }
+
+        .job-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .job-list li {
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .job-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .job-modal-footer {
+            padding: 32px 40px;
+            background: #fafafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #6b7280;
+            padding: 14px 32px;
+            border: 2px solid #d1d5db;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+            color: #374151;
         }
 
         /* Modal */
@@ -677,13 +899,48 @@
             .life-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
-            }
-
-            .job-card {
+            }            .job-card {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 24px;
                 text-align: left;
+            }
+
+            .job-actions {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .view-details-btn,
+            .apply-btn {
+                min-width: auto;
+                flex: 1;
+            }
+
+            .job-modal-content {
+                margin: 20px;
+                border-radius: 20px;
+            }
+
+            .job-modal-header {
+                padding: 24px;
+            }
+
+            .job-modal-body {
+                padding: 24px;
+            }
+
+            .job-modal-footer {
+                padding: 24px;
+                flex-direction: column;
+            }
+
+            .btn-outline,
+            .btn-primary {
+                width: 100%;
+                text-align: center;
             }
 
             .job-meta {
@@ -916,9 +1173,7 @@
                 <p>&copy; 2024 TechCorp. All rights reserved. | Privacy Policy | Terms of Service</p>
             </div>
         </div>
-    </footer>
-
-    <!-- Application Modal -->
+    </footer>    <!-- Application Modal -->
     <div id="applicationModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -969,50 +1224,269 @@
         </div>
     </div>
 
-    <script>
-        // Job listings data
+    <!-- Job Description Modal -->
+    <div id="jobDescriptionModal" class="job-description-modal">
+        <div class="job-modal-content">
+            <div class="job-modal-header">
+                <button class="job-modal-close" onclick="closeJobModal()">&times;</button>
+                <h2 id="jobModalTitle">Job Title</h2>
+                <div class="job-modal-meta" id="jobModalMeta">
+                    <!-- Meta info will be populated by JavaScript -->
+                </div>
+                <div class="job-modal-salary" id="jobModalSalary">
+                    <!-- Salary will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="job-modal-body">
+                <div class="job-section">
+                    <h3><span class="job-section-icon">📋</span>Job Description</h3>
+                    <p class="job-description-text" id="jobModalDescription">
+                        <!-- Description will be populated by JavaScript -->
+                    </p>
+                </div>
+
+                <div class="job-section">
+                    <h3><span class="job-section-icon">🎯</span>Key Responsibilities</h3>
+                    <ul class="job-list" id="jobModalResponsibilities">
+                        <!-- Responsibilities will be populated by JavaScript -->
+                    </ul>
+                </div>
+
+                <div class="job-section">
+                    <h3><span class="job-section-icon">✅</span>Requirements</h3>
+                    <ul class="job-list" id="jobModalRequirements">
+                        <!-- Requirements will be populated by JavaScript -->
+                    </ul>
+                </div>
+
+                <div class="job-section">
+                    <h3><span class="job-section-icon">🎁</span>Benefits & Perks</h3>
+                    <ul class="job-list" id="jobModalBenefits">
+                        <!-- Benefits will be populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-modal-footer">
+                <button class="btn-outline" onclick="closeJobModal()">Close</button>
+                <button class="btn-primary" onclick="applyFromJobModal()">Apply Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>        // Job listings data
         const jobs = [
             {
                 title: "Senior Frontend Developer",
                 department: "Engineering",
                 location: "Remote",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$120K - $160K",
+                description: "We're looking for an experienced Frontend Developer to join our dynamic engineering team. You'll be responsible for building responsive, high-performance web applications using modern technologies.",
+                responsibilities: [
+                    "Develop and maintain scalable frontend applications using React, TypeScript, and modern CSS frameworks",
+                    "Collaborate with designers and backend engineers to implement pixel-perfect, responsive designs",
+                    "Optimize applications for maximum speed and scalability across all devices",
+                    "Write clean, maintainable code and participate in code reviews",
+                    "Mentor junior developers and contribute to technical architecture decisions"
+                ],
+                requirements: [
+                    "5+ years of experience in frontend development",
+                    "Expert knowledge of React, TypeScript, HTML5, CSS3, and JavaScript ES6+",
+                    "Experience with state management libraries (Redux, Zustand, or similar)",
+                    "Proficiency with build tools (Webpack, Vite) and version control (Git)",
+                    "Strong understanding of responsive design and cross-browser compatibility",
+                    "Experience with testing frameworks (Jest, React Testing Library)",
+                    "Excellent communication skills and ability to work in a collaborative environment"
+                ],
+                benefits: [
+                    "Competitive salary with equity options",
+                    "Flexible remote work environment",
+                    "Professional development budget ($3,000/year)",
+                    "Top-tier health, dental, and vision insurance",
+                    "Unlimited PTO policy"
+                ]
             },
             {
                 title: "Product Manager",
                 department: "Product",
                 location: "New York, NY",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$130K - $170K",
+                description: "Join our product team to drive the strategy and execution of our core products. You'll work cross-functionally to deliver exceptional user experiences and drive business growth.",
+                responsibilities: [
+                    "Define product strategy and roadmap based on market research and user feedback",
+                    "Collaborate with engineering, design, and marketing teams to deliver product features",
+                    "Analyze product metrics and user behavior to make data-driven decisions",
+                    "Conduct user research and competitive analysis to identify opportunities",
+                    "Manage product launches and coordinate go-to-market strategies"
+                ],
+                requirements: [
+                    "3+ years of product management experience in tech companies",
+                    "Strong analytical skills with experience in data analysis tools",
+                    "Excellent communication and stakeholder management skills",
+                    "Experience with agile development methodologies",
+                    "Bachelor's degree in Business, Engineering, or related field",
+                    "Experience with product management tools (Jira, Figma, Analytics platforms)"
+                ],
+                benefits: [
+                    "Competitive salary with performance bonuses",
+                    "Hybrid work model (3 days in office)",
+                    "Stock options and 401(k) matching",
+                    "Comprehensive health benefits",
+                    "Professional conference attendance budget"
+                ]
             },
             {
                 title: "UX/UI Designer",
                 department: "Design",
                 location: "San Francisco, CA",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$110K - $140K",
+                description: "We're seeking a creative UX/UI Designer to help shape the user experience of our products. You'll be responsible for creating intuitive, beautiful interfaces that delight our users.",
+                responsibilities: [
+                    "Design user-centered interfaces for web and mobile applications",
+                    "Conduct user research and usability testing to inform design decisions",
+                    "Create wireframes, prototypes, and high-fidelity mockups",
+                    "Collaborate with product managers and engineers to implement designs",
+                    "Maintain and evolve our design system and brand guidelines"
+                ],
+                requirements: [
+                    "3+ years of UX/UI design experience",
+                    "Proficiency in design tools (Figma, Sketch, Adobe Creative Suite)",
+                    "Strong portfolio demonstrating user-centered design process",
+                    "Understanding of HTML/CSS and design systems",
+                    "Experience with user research methodologies",
+                    "Bachelor's degree in Design, HCI, or related field"
+                ],
+                benefits: [
+                    "Competitive salary with creative bonuses",
+                    "Access to latest design tools and software",
+                    "Flexible work arrangements",
+                    "Health and wellness benefits",
+                    "Design conference and workshop budget"
+                ]
             },
             {
                 title: "Data Scientist",
                 department: "Analytics",
                 location: "Remote",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$125K - $165K",
+                description: "Join our data team to extract insights from complex datasets and drive business decisions through advanced analytics and machine learning.",
+                responsibilities: [
+                    "Develop and deploy machine learning models to solve business problems",
+                    "Analyze large datasets to identify trends and actionable insights",
+                    "Create data pipelines and automated reporting systems",
+                    "Collaborate with stakeholders to define key metrics and KPIs",
+                    "Present findings and recommendations to executive leadership"
+                ],
+                requirements: [
+                    "PhD or Master's in Data Science, Statistics, Computer Science, or related field",
+                    "3+ years of experience in data science or analytics roles",
+                    "Strong programming skills in Python/R and SQL",
+                    "Experience with ML frameworks (TensorFlow, PyTorch, scikit-learn)",
+                    "Knowledge of statistical analysis and hypothesis testing",
+                    "Experience with cloud platforms (AWS, GCP) and big data tools"
+                ],
+                benefits: [
+                    "Competitive salary with equity participation",
+                    "Fully remote work environment",
+                    "Access to cutting-edge tools and technologies",
+                    "Conference and training budget",
+                    "Comprehensive benefits package"
+                ]
             },
             {
                 title: "Marketing Intern",
                 department: "Marketing",
                 location: "Austin, TX",
-                type: "Internship"
+                type: "Internship",
+                salary: "$25/hour",
+                description: "Gain hands-on experience in digital marketing while supporting our marketing team's initiatives. This internship offers exposure to various marketing channels and strategies.",
+                responsibilities: [
+                    "Assist with social media content creation and management",
+                    "Support email marketing campaigns and analyze performance metrics",
+                    "Help with market research and competitive analysis",
+                    "Create marketing materials and assist with event planning",
+                    "Collaborate on content marketing initiatives"
+                ],
+                requirements: [
+                    "Currently pursuing a degree in Marketing, Communications, or related field",
+                    "Strong written and verbal communication skills",
+                    "Familiarity with social media platforms and digital marketing",
+                    "Basic knowledge of design tools (Canva, Adobe Creative Suite)",
+                    "Analytical mindset with attention to detail",
+                    "Enthusiasm for learning and professional growth"
+                ],
+                benefits: [
+                    "Competitive hourly wage",
+                    "Mentorship from senior marketing professionals",
+                    "Flexible schedule to accommodate classes",
+                    "Potential for full-time offer upon graduation",
+                    "Access to marketing tools and training resources"
+                ]
             },
             {
                 title: "Backend Engineer",
                 department: "Engineering",
                 location: "Seattle, WA",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$115K - $155K",
+                description: "Build scalable, robust backend systems that power our applications. You'll work with modern technologies to create APIs and services that serve millions of users.",
+                responsibilities: [
+                    "Design and develop scalable backend APIs and microservices",
+                    "Optimize database performance and implement caching strategies",
+                    "Collaborate with frontend teams to integrate systems effectively",
+                    "Implement security best practices and monitoring solutions",
+                    "Participate in on-call rotation and incident response"
+                ],
+                requirements: [
+                    "4+ years of backend development experience",
+                    "Strong proficiency in Node.js, Python, or Go",
+                    "Experience with relational and NoSQL databases",
+                    "Knowledge of cloud platforms (AWS, Azure, GCP)",
+                    "Understanding of containerization (Docker, Kubernetes)",
+                    "Experience with API design and microservices architecture"
+                ],
+                benefits: [
+                    "Competitive salary with stock options",
+                    "Hybrid work environment",
+                    "Technical learning and development budget",
+                    "Comprehensive health and retirement benefits",
+                    "Flexible PTO policy"
+                ]
             },
             {
                 title: "DevOps Engineer",
                 department: "Infrastructure",
                 location: "Remote",
-                type: "Full-time"
+                type: "Full-time",
+                salary: "$130K - $170K",
+                description: "Lead our infrastructure and deployment strategies. You'll be responsible for maintaining reliable, scalable systems and improving our development workflows.",
+                responsibilities: [
+                    "Manage and optimize cloud infrastructure across multiple environments",
+                    "Implement CI/CD pipelines and deployment automation",
+                    "Monitor system performance and implement alerting solutions",
+                    "Ensure security compliance and implement best practices",
+                    "Collaborate with development teams to improve deployment processes"
+                ],
+                requirements: [
+                    "5+ years of DevOps or Infrastructure experience",
+                    "Strong experience with AWS, Azure, or Google Cloud Platform",
+                    "Proficiency in Infrastructure as Code (Terraform, CloudFormation)",
+                    "Experience with containerization and orchestration (Docker, Kubernetes)",
+                    "Knowledge of monitoring tools (Prometheus, Grafana, ELK stack)",
+                    "Scripting skills in Python, Bash, or PowerShell"
+                ],
+                benefits: [
+                    "Competitive salary with equity package",
+                    "Fully remote work flexibility",
+                    "Technology and certification budget",
+                    "Premium health and wellness benefits",
+                    "Flexible time off policy"
+                ]
             }
         ];
 
@@ -1021,9 +1495,7 @@
             populateJobs();
             setupAnimations();
             setupFAQs();
-        });
-
-        function populateJobs() {
+        });        function populateJobs() {
             const jobsGrid = document.getElementById('jobsGrid');
             jobsGrid.innerHTML = '';
 
@@ -1033,19 +1505,105 @@
                 jobCard.innerHTML = `
                     <div class="job-info">
                         <h3>${job.title}</h3>
+                        <div class="job-salary">${job.salary}</div>
                         <div class="job-meta">
                             <span>${job.department}</span>
                             <span>${job.location}</span>
                             <span>${job.type}</span>
                         </div>
+                        <div class="job-description">
+                            ${job.description}
+                        </div>
                     </div>
-                    <button class="apply-btn" onclick="openApplicationModal('${job.title}')">
-                        Apply Now
-                    </button>
+                    <div class="job-actions">
+                        <button class="view-details-btn" onclick="openJobDescriptionModal(${index})">
+                            View Details
+                        </button>
+                        <button class="apply-btn" onclick="openApplicationModal('${job.title}')">
+                            Apply Now
+                        </button>
+                    </div>
                 `;
                 jobsGrid.appendChild(jobCard);
             });
         }
+
+        let currentJobIndex = null;
+
+        function openJobDescriptionModal(jobIndex) {
+            currentJobIndex = jobIndex;
+            const job = jobs[jobIndex];
+            const modal = document.getElementById('jobDescriptionModal');
+            
+            // Populate modal content
+            document.getElementById('jobModalTitle').textContent = job.title;
+            document.getElementById('jobModalSalary').textContent = job.salary;
+            document.getElementById('jobModalDescription').textContent = job.description;
+            
+            // Populate meta info
+            const metaContainer = document.getElementById('jobModalMeta');
+            metaContainer.innerHTML = `
+                <span>${job.department}</span>
+                <span>${job.location}</span>
+                <span>${job.type}</span>
+            `;
+            
+            // Populate responsibilities
+            const responsibilitiesContainer = document.getElementById('jobModalResponsibilities');
+            responsibilitiesContainer.innerHTML = job.responsibilities
+                .map(responsibility => `<li>${responsibility}</li>`)
+                .join('');
+            
+            // Populate requirements
+            const requirementsContainer = document.getElementById('jobModalRequirements');
+            requirementsContainer.innerHTML = job.requirements
+                .map(requirement => `<li>${requirement}</li>`)
+                .join('');
+            
+            // Populate benefits
+            const benefitsContainer = document.getElementById('jobModalBenefits');
+            benefitsContainer.innerHTML = job.benefits
+                .map(benefit => `<li>${benefit}</li>`)
+                .join('');
+            
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJobModal() {
+            const modal = document.getElementById('jobDescriptionModal');
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+            currentJobIndex = null;
+        }
+
+        function applyFromJobModal() {
+            if (currentJobIndex !== null) {
+                const job = jobs[currentJobIndex];
+                closeJobModal();
+                setTimeout(() => {
+                    openApplicationModal(job.title);
+                }, 300);
+            }
+        }
+
+        // Close job modal when clicking outside
+        document.getElementById('jobDescriptionModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJobModal();
+            }
+        });
+
+        // Close job modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('jobDescriptionModal').classList.contains('show')) {
+                    closeJobModal();
+                } else if (document.getElementById('applicationModal').classList.contains('show')) {
+                    closeModal();
+                }
+            }
+        });
 
         function openApplicationModal(jobTitle) {
             const modal = document.getElementById('applicationModal');
