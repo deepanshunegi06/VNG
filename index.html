@@ -1,1793 +1,2309 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>    <!-- Document Meta Information -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Careers - Build Your Future With Us</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      /* Global Styles & CSS Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #1a202c;
-            font-weight: 400;
-            overflow-x: hidden;
-        }
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Roboto", sans-serif;
+        line-height: 1.6;
+        color: #1a202c;
+        font-weight: 400;        overflow-x: hidden;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+      /* Container & Layout */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;      }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
-            color: white;
-            padding: 140px 0 120px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1e40af 0%,
+          #3b82f6 50%,
+          #60a5fa 100%
+        );
+        color: white;
+        padding: 140px 0 120px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80') center/cover;
-            opacity: 0.08;
-        }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80")
+          center/cover;
+        opacity: 0.08;
+      }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 50%);
-        }
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 30% 40%,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 50%
+        );
+      }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
 
+      .hero h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 24px;
+        opacity: 0;
+        animation: fadeInUp 1s ease forwards;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+        margin-bottom: 48px;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.3s forwards;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+
+      .cta-button {
+        background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        color: white;
+        padding: 18px 48px;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-block;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.6s forwards;
+        box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+      }
+
+      /* Why Work With Us Section */
+      .why-work {
+        padding: 120px 0;
+        background: #fafafb;
+      }
+
+      /* Section Typography */
+      .section-title {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 80px;
+        color: #1a202c;
+        letter-spacing: -0.01em;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.2rem;
+        color: #64748b;
+        margin-bottom: 80px;
+        margin-top: -60px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;      }
+
+      /* Benefits Grid & Cards */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .benefit-card {
+        background: white;
+        padding: 48px 32px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+        transform: translateY(30px);
+        border: 1px solid #f1f5f9;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        border-color: #e2e8f0;
+      }
+
+      .benefit-icon {
+        width: 88px;
+        height: 88px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 2.2rem;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+      }
+
+      .benefit-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+        color: #1a202c;
+        font-weight: 600;
+      }
+
+      .benefit-card p {
+        color: #64748b;
+        line-height: 1.7;        font-size: 1rem;
+      }
+
+      /* Life At Company Section */
+      .life-at-company {
+        padding: 120px 0;
+        background: white;
+      }
+
+      .life-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 40px;
+        margin-top: 80px;
+      }
+
+      .life-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #f1f5f9;
+      }
+
+      .life-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+      }
+
+      .life-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+      }
+
+      .life-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .life-card-content {
+        padding: 36px;
+      }
+
+      .life-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+        color: #1a202c;
+        font-weight: 600;
+      }
+
+      .life-card p {
+        color: #64748b;        line-height: 1.7;
+        font-style: italic;
+      }
+
+      /* Open Positions Section */
+      .open-positions {
+        padding: 120px 0;
+        background: #fafafb;
+      }
+
+      /* Jobs Grid Container */      .jobs-grid {
+        display: grid;
+        gap: 24px;
+        margin-top: 80px;
+      }
+
+      /* ===================================================================================
+         JOB CARD COMPONENT
+         Individual job listing card styling with hover effects, layout, and typography.
+         Each card contains job info, actions, and hidden detailed information for modals.
+         =================================================================================== */
+      .job-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth hover animation */
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border: 1px solid #f1f5f9;
+        gap: 32px; /* Space between job info and actions */
+      }
+
+      /* Job Card Hover Effect - Subtle lift and shadow enhancement */
+      .job-card:hover {
+        transform: translateY(-4px); /* Lift effect on hover */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: #e2e8f0;
+      }
+
+      /* ===================================================================================
+         JOB CARD CONTENT LAYOUT
+         Layout and typography for job information, metadata, and descriptions.
+         =================================================================================== */
+
+      /* Job Information Container - Contains all job details */
+      .job-info {
+        flex: 1; /* Takes up remaining space next to actions */
+      }
+
+      /* Job Title Styling */
+      .job-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        color: #1a202c;
+        font-weight: 600;
+      }
+
+      /* Job Salary Display - Prominent green color to highlight compensation */
+      .job-salary {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #059669; /* Green color for positive association */
+        margin-bottom: 16px;
+      }
+
+      /* Job Description Text */
+      .job-description {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
+
+      /* Job Metadata Tags - Department, Location, Type */
+      .job-meta {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 8px;
+        flex-wrap: wrap; /* Allow tags to wrap on smaller screens */
+      }
+
+      /* Individual Metadata Tag Styling */
+      .job-meta span {
+        background: #f1f5f9;
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        color: #475569;
+        font-weight: 500;
+      }
+
+      .job-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-end;
+      }
+
+      .view-details-btn {
+        background: white;
+        color: #3b82f6;
+        padding: 12px 24px;
+        border: 2px solid #3b82f6;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 0.95rem;
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        min-width: 140px;
+      }
+
+      .view-details-btn:hover {
+        background: #3b82f6;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+      }
+
+      .apply-btn {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        color: white;
+        padding: 14px 32px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1rem;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        min-width: 140px;
+      }
+
+      .apply-btn:hover {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        transform: translateY(-2px);        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+      }
+
+      /* Job Description Modal */
+      .job-description-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .job-description-modal.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+      }
+
+      .job-modal-content {
+        background: white;
+        padding: 0;
+        border-radius: 24px;
+        width: 90%;
+        max-width: 800px;
+        max-height: 90vh;
+        overflow: hidden;
+        transform: scale(0.8);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .job-description-modal.show .job-modal-content {
+        transform: scale(1);
+      }
+
+      .job-modal-header {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        color: white;
+        padding: 32px 40px;
+        position: relative;
+      }
+
+      .job-modal-header h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .job-modal-meta {
+        display: flex;
+        gap: 24px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+
+      .job-modal-meta span {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 16px;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        backdrop-filter: blur(10px);
+      }
+
+      .job-modal-salary {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fbbf24;
+        margin-top: 8px;
+      }
+
+      .job-modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 12px;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .job-modal-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .job-modal-body {
+        padding: 40px;
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      .job-section {
+        margin-bottom: 32px;
+      }
+
+      .job-section h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #1a202c;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .job-section-icon {
+        font-size: 1.2rem;
+      }
+
+      .job-description-text {
+        color: #4b5563;
+        line-height: 1.7;
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+
+      .job-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .job-list li {
+        color: #4b5563;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .job-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #10b981;
+        font-weight: bold;
+      }
+
+      .job-modal-footer {
+        padding: 32px 40px;
+        background: #fafafb;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+      }
+
+      .btn-outline {
+        background: white;
+        color: #6b7280;
+        padding: 14px 32px;
+        border: 2px solid #d1d5db;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-outline:hover {
+        background: #f9fafb;
+        border-color: #9ca3af;
+        color: #374151;
+      } /* =============================================================================
+           APPLICATION MODAL
+           Modal popup styles for the job application form with validation styling
+           ============================================================================= */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .modal.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 48px;
+        border-radius: 24px;
+        width: 90%;
+        max-width: 600px;
+        max-height: 80vh;
+        overflow-y: auto;
+        transform: scale(0.8);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .modal.show .modal-content {
+        transform: scale(1);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid #f1f5f9;
+      }
+
+      .modal-header h2 {
+        color: #1a202c;
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+
+      .close {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #64748b;
+        padding: 8px;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .close:hover {
+        background: #f1f5f9;
+        color: #1a202c;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #1a202c;
+        font-size: 0.95rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 16px 20px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      .form-group textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+        margin-top: 40px;
+        padding-top: 32px;
+        border-top: 1px solid #f1f5f9;
+      }
+
+      .btn-secondary {
+        background: #f8fafc;
+        color: #475569;
+        padding: 14px 32px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .btn-secondary:hover {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        color: white;
+        padding: 14px 32px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        transform: translateY(-2px);        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+      }
+
+      /* FAQs Section */
+      .faqs {
+        padding: 120px 0;
+        background: white;
+      }
+
+      .faq-item {
+        background: white;
+        margin-bottom: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        border: 1px solid #f1f5f9;
+        transition: all 0.3s ease;
+      }
+
+      .faq-item:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .faq-question {
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+        padding: 28px 32px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        color: #1a202c;
+      }
+
+      .faq-question:hover {
+        background: #fafafb;
+      }
+
+      .faq-answer {
+        padding: 0 32px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #64748b;
+        line-height: 1.7;
+      }
+
+      .faq-answer.active {
+        padding: 24px 32px 32px;
+        max-height: 300px;
+      }
+
+      .faq-icon {
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1.4rem;
+        color: #3b82f6;
+      }
+
+      .faq-item.active .faq-icon {        transform: rotate(45deg);
+      }
+
+      /* Footer Section */
+      .footer {
+        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        color: white;
+        padding: 80px 0 40px;
+        text-align: center;
+      }
+
+      .footer h3 {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+        font-weight: 700;
+      }
+
+      .footer p {
+        color: #cbd5e1;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin: 40px 0;
+      }
+
+      .social-icon {
+        width: 56px;
+        height: 56px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .social-icon:hover {
+        background: #3b82f6;
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+      }
+
+      .newsletter {
+        margin: 40px 0;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .newsletter input {
+        padding: 16px 24px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        backdrop-filter: blur(10px);
+        width: 320px;
+        max-width: 100%;
+        font-size: 1rem;
+      }
+
+      .newsletter input::placeholder {
+        color: #cbd5e1;
+      }
+
+      .newsletter button {
+        background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+        color: white;
+        padding: 16px 32px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+      }
+
+      .newsletter button:hover {
+        background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+      }
+
+      .footer-bottom {
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);        color: #94a3b8;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in-up {
+        opacity: 1;
+        transform: translateY(0);        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Success Message */
+      .success-message {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+        padding: 20px 24px;
+        border-radius: 12px;
+        margin-bottom: 24px;
+        display: none;
+        font-weight: 600;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+      }
+
+      .success-message.show {
+        display: block;        animation: fadeInUp 0.5s ease;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 24px;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
+          font-size: 2.8rem;
         }
 
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 48px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-            font-weight: 400;
-            line-height: 1.5;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-            color: white;
-            padding: 18px 48px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            display: inline-block;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.4);
-            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-        }
-
-        /* Why Work With Us */
-        .why-work {
-            padding: 120px 0;
-            background: #fafafb;
+          font-size: 1.2rem;
         }
 
         .section-title {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 80px;
-            color: #1a202c;
-            letter-spacing: -0.01em;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 80px;
-            margin-top: -60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+          font-size: 2.4rem;
         }
 
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 48px 32px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            transform: translateY(30px);
-            border: 1px solid #f1f5f9;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-            border-color: #e2e8f0;
-        }
-
-        .benefit-icon {
-            width: 88px;
-            height: 88px;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2.2rem;
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
-        }
-
-        .benefit-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            color: #1a202c;
-            font-weight: 600;
-        }
-
-        .benefit-card p {
-            color: #64748b;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        /* Life at Company */
-        .life-at-company {
-            padding: 120px 0;
-            background: white;
+          grid-template-columns: 1fr;
+          gap: 24px;
         }
 
         .life-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            margin-top: 80px;
+          grid-template-columns: 1fr;
+          gap: 24px;
         }
-
-        .life-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid #f1f5f9;
-        }
-
-        .life-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .life-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .life-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .life-card-content {
-            padding: 36px;
-        }
-
-        .life-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            color: #1a202c;
-            font-weight: 600;
-        }
-
-        .life-card p {
-            color: #64748b;
-            line-height: 1.7;
-            font-style: italic;
-        }
-
-        /* Open Positions */
-        .open-positions {
-            padding: 120px 0;
-            background: #fafafb;
-        }
-
-        .jobs-grid {
-            display: grid;
-            gap: 24px;
-            margin-top: 80px;
-        }        .job-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border: 1px solid #f1f5f9;
-            gap: 32px;
-        }
-
-        .job-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: #e2e8f0;
-        }
-
-        .job-info {
-            flex: 1;
-        }
-
-        .job-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            color: #1a202c;
-            font-weight: 600;
-        }
-
-        .job-salary {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #059669;
-            margin-bottom: 16px;
-        }
-
-        .job-description {
-            color: #64748b;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .job-meta {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .job-meta span {
-            background: #f1f5f9;
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            color: #475569;
-            font-weight: 500;
+        .job-card {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 24px;
+          text-align: left;
         }
 
         .job-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: flex-end;
+          width: 100%;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
         }
 
-        .view-details-btn {
-            background: white;
-            color: #3b82f6;
-            padding: 12px 24px;
-            border: 2px solid #3b82f6;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.95rem;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-            min-width: 140px;
-        }
-
-        .view-details-btn:hover {
-            background: #3b82f6;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
-        }
-
+        .view-details-btn,
         .apply-btn {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
-            min-width: 140px;
-        }
-
-        .apply-btn:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Job Description Modal */
-        .job-description-modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .job-description-modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
+          min-width: auto;
+          flex: 1;
         }
 
         .job-modal-content {
-            background: white;
-            padding: 0;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow: hidden;
-            transform: scale(0.8);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .job-description-modal.show .job-modal-content {
-            transform: scale(1);
+          margin: 20px;
+          border-radius: 20px;
         }
 
         .job-modal-header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            padding: 32px 40px;
-            position: relative;
-        }
-
-        .job-modal-header h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .job-modal-meta {
-            display: flex;
-            gap: 24px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .job-modal-meta span {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        .job-modal-salary {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #fbbf24;
-            margin-top: 8px;
-        }
-
-        .job-modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 12px;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .job-modal-close:hover {
-            background: rgba(255, 255, 255, 0.3);
+          padding: 24px;
         }
 
         .job-modal-body {
-            padding: 40px;
-            max-height: 60vh;
-            overflow-y: auto;
-        }
-
-        .job-section {
-            margin-bottom: 32px;
-        }
-
-        .job-section h3 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .job-section-icon {
-            font-size: 1.2rem;
-        }
-
-        .job-description-text {
-            color: #4b5563;
-            line-height: 1.7;
-            font-size: 1rem;
-            margin-bottom: 24px;
-        }
-
-        .job-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .job-list li {
-            color: #4b5563;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .job-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
+          padding: 24px;
         }
 
         .job-modal-footer {
-            padding: 32px 40px;
-            background: #fafafb;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            gap: 16px;
-            justify-content: flex-end;
+          padding: 24px;
+          flex-direction: column;
         }
 
-        .btn-outline {
-            background: white;
-            color: #6b7280;
-            padding: 14px 32px;
-            border: 2px solid #d1d5db;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+        .btn-outline,
+        .btn-primary {
+          width: 100%;
+          text-align: center;
         }
 
-        .btn-outline:hover {
-            background: #f9fafb;
-            border-color: #9ca3af;
-            color: #374151;
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 1;
+        .job-meta {
+          flex-wrap: wrap;
         }
 
         .modal-content {
-            background: white;
-            padding: 48px;
-            border-radius: 24px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            transform: scale(0.8);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .modal.show .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .modal-header h2 {
-            color: #1a202c;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .close {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: #64748b;
-            padding: 8px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .close:hover {
-            background: #f1f5f9;
-            color: #1a202c;
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #1a202c;
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 16px;
-            justify-content: flex-end;
-            margin-top: 40px;
-            padding-top: 32px;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .btn-secondary {
-            background: #f8fafc;
-            color: #475569;
-            padding: 14px 32px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: #f1f5f9;
-            border-color: #cbd5e1;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            padding: 14px 32px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        /* FAQs */
-        .faqs {
-            padding: 120px 0;
-            background: white;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
-            border: 1px solid #f1f5f9;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-
-        .faq-question {
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            padding: 28px 32px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            color: #1a202c;
-        }
-
-        .faq-question:hover {
-            background: #fafafb;
-        }
-
-        .faq-answer {
-            padding: 0 32px;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: #64748b;
-            line-height: 1.7;
-        }
-
-        .faq-answer.active {
-            padding: 24px 32px 32px;
-            max-height: 300px;
-        }
-
-        .faq-icon {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 1.4rem;
-            color: #3b82f6;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: white;
-            padding: 80px 0 40px;
-            text-align: center;
-        }
-
-        .footer h3 {
-            font-size: 1.8rem;
-            margin-bottom: 24px;
-            font-weight: 700;
-        }
-
-        .footer p {
-            color: #cbd5e1;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .social-icon {
-            width: 56px;
-            height: 56px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .social-icon:hover {
-            background: #3b82f6;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+          padding: 32px 24px;
+          margin: 20px;
+          border-radius: 20px;
         }
 
         .newsletter {
-            margin: 40px 0;
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
+          flex-direction: column;
+          align-items: center;
         }
 
         .newsletter input {
-            padding: 16px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            backdrop-filter: blur(10px);
-            width: 320px;
-            max-width: 100%;
-            font-size: 1rem;
+          width: 100%;
+          margin-bottom: 16px;
         }
 
-        .newsletter input::placeholder {
-            color: #cbd5e1;
+        .container {
+          padding: 0 20px;
         }
 
-        .newsletter button {
-            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        .hero {
+          padding: 100px 0 80px;
         }
 
-        .newsletter button:hover {
-            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        .why-work,
+        .life-at-company,
+        .open-positions,
+        .faqs {
+          padding: 80px 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 {
+          font-size: 2.2rem;
         }
 
-        .footer-bottom {
-            margin-top: 60px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #94a3b8;
+        .section-title {
+          font-size: 2rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .benefit-card,
+        .life-card-content {
+          padding: 32px 24px;
         }
 
-        .fade-in-up {
-            opacity: 1;
-            transform: translateY(0);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        .job-card {
+          padding: 28px 24px;
         }
-
-        /* Success Message */
-        .success-message {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            padding: 20px 24px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            display: none;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-        }
-
-        .success-message.show {
-            display: block;
-            animation: fadeInUp 0.5s ease;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.2rem;
-            }
-
-            .section-title {
-                font-size: 2.4rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .life-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }            .job-card {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 24px;
-                text-align: left;
-            }
-
-            .job-actions {
-                width: 100%;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            .view-details-btn,
-            .apply-btn {
-                min-width: auto;
-                flex: 1;
-            }
-
-            .job-modal-content {
-                margin: 20px;
-                border-radius: 20px;
-            }
-
-            .job-modal-header {
-                padding: 24px;
-            }
-
-            .job-modal-body {
-                padding: 24px;
-            }
-
-            .job-modal-footer {
-                padding: 24px;
-                flex-direction: column;
-            }
-
-            .btn-outline,
-            .btn-primary {
-                width: 100%;
-                text-align: center;
-            }
-
-            .job-meta {
-                flex-wrap: wrap;
-            }
-
-            .modal-content {
-                padding: 32px 24px;
-                margin: 20px;
-                border-radius: 20px;
-            }
-
-            .newsletter {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .newsletter input {
-                width: 100%;
-                margin-bottom: 16px;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .hero {
-                padding: 100px 0 80px;
-            }
-
-            .why-work,
-            .life-at-company,
-            .open-positions,
-            .faqs {
-                padding: 80px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .benefit-card,
-            .life-card-content {
-                padding: 32px 24px;
-            }
-
-            .job-card {
-                padding: 28px 24px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>  <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Build Your Career With Us</h1>
-                <p>Join our innovative team and shape the future of technology while growing your career in a collaborative, forward-thinking environment where your ideas matter.</p>
-                <a href="#open-positions" class="cta-button">View Open Positions</a>
-            </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1>Build Your Career With Us</h1>
+          <p>
+            Join our innovative team and shape the future of technology while
+            growing your career in a collaborative, forward-thinking environment
+            where your ideas matter.
+          </p>
+          <a href="#open-positions" class="cta-button">View Open Positions</a>
         </div>
-    </section>
+      </div>    </section>
 
-    <!-- Why Work With Us -->
+    <!-- Why Work With Us Section -->
     <section class="why-work">
-        <div class="container">
-            <h2 class="section-title">Why Work With Us</h2>
-            <p class="section-subtitle">We believe in empowering our team members to do their best work while maintaining a healthy work-life balance.</p>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🕒</div>
-                    <h3>Flexible Schedule</h3>
-                    <p>Work when you're most productive with our flexible scheduling and comprehensive work-life balance programs.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🌍</div>
-                    <h3>Remote-First Culture</h3>
-                    <p>Work from anywhere in the world with our fully remote-friendly culture and state-of-the-art digital collaboration tools.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3>Career Development</h3>
-                    <p>Accelerate your growth with personalized learning paths, mentorship programs, and clear career advancement opportunities.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🏥</div>
-                    <h3>Comprehensive Benefits</h3>
-                    <p>Premium health insurance, dental, vision, mental health support, and wellness programs for you and your family.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Competitive Package</h3>
-                    <p>Industry-leading compensation with equity options, performance bonuses, and comprehensive financial benefits.</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🚀</div>
-                    <h3>Innovation Environment</h3>
-                    <p>Work on cutting-edge projects with the latest technologies, tools, and methodologies in a fast-paced environment.</p>
-                </div>
-            </div>
-        </div>
+      <div class="container">
+        <h2 class="section-title">Why Work With Us</h2>
+        <p class="section-subtitle">
+          We believe in empowering our team members to do their best work while
+          maintaining a healthy work-life balance.
+        </p>
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">🕒</div>
+            <h3>Flexible Schedule</h3>
+            <p>
+              Work when you're most productive with our flexible scheduling and
+              comprehensive work-life balance programs.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🌍</div>
+            <h3>Remote-First Culture</h3>
+            <p>
+              Work from anywhere in the world with our fully remote-friendly
+              culture and state-of-the-art digital collaboration tools.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">📈</div>
+            <h3>Career Development</h3>
+            <p>
+              Accelerate your growth with personalized learning paths,
+              mentorship programs, and clear career advancement opportunities.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🏥</div>
+            <h3>Comprehensive Benefits</h3>
+            <p>
+              Premium health insurance, dental, vision, mental health support,
+              and wellness programs for you and your family.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">💰</div>
+            <h3>Competitive Package</h3>
+            <p>
+              Industry-leading compensation with equity options, performance
+              bonuses, and comprehensive financial benefits.
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🚀</div>
+            <h3>Innovation Environment</h3>
+            <p>
+              Work on cutting-edge projects with the latest technologies, tools,
+              and methodologies in a fast-paced environment.
+            </p>
+          </div>        </div>
+      </div>
     </section>
 
-    <!-- Life at Company -->
+    <!-- Life At Company Section -->
     <section class="life-at-company">
-        <div class="container">
-            <h2 class="section-title">Life at TechCorp</h2>
-            <p class="section-subtitle">Hear from our team members about what makes our workplace special and why they love what they do.</p>
-            <div class="life-grid">
-                <div class="life-card">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team collaboration">
-                    <div class="life-card-content">
-                        <h3>Collaborative Environment</h3>
-                        <p>"Working here feels like being part of a family. Everyone supports each other, and we celebrate wins together. The mentorship and knowledge sharing culture is incredible."</p>
-                        <div style="margin-top: 16px; color: #3b82f6; font-weight: 600;">— Sarah Chen, Product Manager</div>
-                    </div>
-                </div>
-                <div class="life-card">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Modern workspace">
-                    <div class="life-card-content">
-                        <h3>Inspiring Workspace</h3>
-                        <p>"The office design promotes creativity and focus. Whether I'm collaborating in person or working remotely, I have everything I need to do my best work."</p>
-                        <div style="margin-top: 16px; color: #3b82f6; font-weight: 600;">— Michael Rodriguez, Senior Developer</div>
-                    </div>
-                </div>
-                <div class="life-card">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Team building">
-                    <div class="life-card-content">
-                        <h3>Team Culture</h3>
-                        <p>"From hackathons to team retreats, there's always something exciting happening. The company truly invests in building relationships and having fun together."</p>
-                        <div style="margin-top: 16px; color: #3b82f6; font-weight: 600;">— Alex Thompson, UX Designer</div>
-                    </div>
-                </div>
+      <div class="container">
+        <h2 class="section-title">Life at TechCorp</h2>
+        <p class="section-subtitle">
+          Hear from our team members about what makes our workplace special and
+          why they love what they do.
+        </p>
+        <div class="life-grid">
+          <div class="life-card">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Team collaboration"
+            />
+            <div class="life-card-content">
+              <h3>Collaborative Environment</h3>
+              <p>
+                "Working here feels like being part of a family. Everyone
+                supports each other, and we celebrate wins together. The
+                mentorship and knowledge sharing culture is incredible."
+              </p>
+              <div style="margin-top: 16px; color: #3b82f6; font-weight: 600">
+                — Sarah Chen, Product Manager
+              </div>
             </div>
-        </div>
+          </div>
+          <div class="life-card">
+            <img
+              src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Modern workspace"
+            />
+            <div class="life-card-content">
+              <h3>Inspiring Workspace</h3>
+              <p>
+                "The office design promotes creativity and focus. Whether I'm
+                collaborating in person or working remotely, I have everything I
+                need to do my best work."
+              </p>
+              <div style="margin-top: 16px; color: #3b82f6; font-weight: 600">
+                — Michael Rodriguez, Senior Developer
+              </div>
+            </div>
+          </div>
+          <div class="life-card">
+            <img
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Team building"
+            />
+            <div class="life-card-content">
+              <h3>Team Culture</h3>
+              <p>
+                "From hackathons to team retreats, there's always something
+                exciting happening. The company truly invests in building
+                relationships and having fun together."
+              </p>
+              <div style="margin-top: 16px; color: #3b82f6; font-weight: 600">
+                — Alex Thompson, UX Designer
+              </div>
+            </div>
+          </div>        </div>
+      </div>
     </section>
 
-    <!-- Open Positions -->
+    <!-- Open Positions Section -->
     <section class="open-positions" id="open-positions">
-        <div class="container">
-            <h2 class="section-title">Open Positions</h2>
-            <p class="section-subtitle">Join our growing team and make an impact from day one. We're looking for passionate individuals who want to grow with us.</p>
-            <div class="jobs-grid" id="jobsGrid">
-                <!-- Jobs will be populated by JavaScript -->
-            </div>
-        </div>
-    </section>
+      <div class="container">
+        <h2 class="section-title">Open Positions</h2>
+        <p class="section-subtitle">
+          Join our growing team and make an impact from day one. We're looking
+          for passionate individuals who want to grow with us.
+        </p>        <!-- Jobs Grid -->
+        <div class="jobs-grid" id="jobsGrid">
+          <!-- Senior Frontend Developer -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Senior Frontend Developer</h3>
+              <div class="job-salary">$120K - $160K</div>
 
-    <!-- FAQs -->
-    <section class="faqs">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Get answers to common questions about our hiring process, company culture, and career opportunities.</p>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is the interview process like?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Our interview process typically consists of 3-4 stages: initial screening call, technical assessment, team interview, and final interview with leadership. We aim to complete the process within 2 weeks and provide feedback at every stage.</p>
-                    </div>
+              <!-- Job Metadata Tags -->
+              <div class="job-meta">
+                <span>Engineering</span>
+                <span>Remote</span>
+                <span>Full-time</span>
+              </div>              <!-- Job Description Preview -->
+              <div class="job-description">
+                We're looking for an experienced Frontend Developer to join our
+                dynamic engineering team. You'll be responsible for building
+                responsive, high-performance web applications using modern
+                technologies.
+              </div>
+
+              <!-- Job details for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Develop and maintain scalable frontend applications using
+                    React, TypeScript, and modern CSS frameworks
+                  </li>
+                  <li>
+                    Collaborate with designers and backend engineers to
+                    implement pixel-perfect, responsive designs
+                  </li>
+                  <li>
+                    Optimize applications for maximum speed and scalability
+                    across all devices
+                  </li>
+                  <li>
+                    Write clean, maintainable code and participate in code
+                    reviews
+                  </li>
+                  <li>
+                    Mentor junior developers and contribute to technical
+                    architecture decisions
+                  </li>                </div>
+
+                <div class="job-requirements">
+                  <li>5+ years of experience in frontend development</li>
+                  <li>
+                    Expert knowledge of React, TypeScript, HTML5, CSS3, and
+                    JavaScript ES6+
+                  </li>
+                  <li>
+                    Experience with state management libraries (Redux, Zustand,
+                    or similar)
+                  </li>
+                  <li>
+                    Proficiency with build tools (Webpack, Vite) and version
+                    control (Git)
+                  </li>
+                  <li>
+                    Strong understanding of responsive design and cross-browser
+                    compatibility
+                  </li>
+                  <li>
+                    Experience with testing frameworks (Jest, React Testing
+                    Library)
+                  </li>
+                  <li>
+                    Excellent communication skills and ability to work in a
+                    collaborative environment
+                  </li>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Do you offer internship programs?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes! We offer comprehensive summer and semester internship programs for students and recent graduates. Interns work on real projects, receive mentorship from senior team members, and have opportunities for full-time conversion.</p>
-                    </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with equity options</li>
+                  <li>Flexible remote work environment</li>
+                  <li>Professional development budget ($3,000/year)</li>
+                  <li>Top-tier health, dental, and vision insurance</li>
+                  <li>Unlimited PTO policy</li>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What technologies do you use?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We use modern technologies including React, Node.js, Python, TypeScript, AWS, Docker, Kubernetes, and more. We're always exploring new technologies and encourage continuous learning and experimentation.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        How do you support professional development?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>We provide annual learning budgets, conference attendance, internal training sessions, mentorship programs, and support for certifications and courses. We also have internal tech talks and knowledge sharing sessions.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What's your company culture like?
-                        <span class="faq-icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Our culture is built on collaboration, innovation, and respect. We value diversity, encourage open communication, and foster an environment where everyone can contribute their best work while maintaining work-life balance.</p>
-                    </div>
-                </div>
+              </div>
             </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('Senior Frontend Developer')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+          <!-- Job 2: Product Manager -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Product Manager</h3>
+              <div class="job-salary">$130K - $170K</div>
+              <div class="job-meta">
+                <span>Product</span>
+                <span>New York, NY</span>
+                <span>Full-time</span>
+              </div>
+              <div class="job-description">
+                Join our product team to drive the strategy and execution of our
+                core products. You'll work cross-functionally to deliver
+                exceptional user experiences and drive business growth.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Define product strategy and roadmap based on market research
+                    and user feedback
+                  </li>
+                  <li>
+                    Collaborate with engineering, design, and marketing teams to
+                    deliver product features
+                  </li>
+                  <li>
+                    Analyze product metrics and user behavior to make
+                    data-driven decisions
+                  </li>
+                  <li>
+                    Conduct user research and competitive analysis to identify
+                    opportunities
+                  </li>
+                  <li>
+                    Manage product launches and coordinate go-to-market
+                    strategies
+                  </li>
+                </div>
+                <div class="job-requirements">
+                  <li>
+                    3+ years of product management experience in tech companies
+                  </li>
+                  <li>
+                    Strong analytical skills with experience in data analysis
+                    tools
+                  </li>
+                  <li>
+                    Excellent communication and stakeholder management skills
+                  </li>
+                  <li>Experience with agile development methodologies</li>
+                  <li>
+                    Bachelor's degree in Business, Engineering, or related field
+                  </li>
+                  <li>
+                    Experience with product management tools (Jira, Figma,
+                    Analytics platforms)
+                  </li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with performance bonuses</li>
+                  <li>Hybrid work model (3 days in office)</li>
+                  <li>Stock options and 401(k) matching</li>
+                  <li>Comprehensive health benefits</li>
+                  <li>Professional conference attendance budget</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('Product Manager')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 3: UX/UI Designer -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>UX/UI Designer</h3>
+              <div class="job-salary">$110K - $140K</div>
+              <div class="job-meta">
+                <span>Design</span>
+                <span>San Francisco, CA</span>
+                <span>Full-time</span>
+              </div>
+              <div class="job-description">
+                We're seeking a creative UX/UI Designer to help shape the user
+                experience of our products. You'll be responsible for creating
+                intuitive, beautiful interfaces that delight our users.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Design user-centered interfaces for web and mobile
+                    applications
+                  </li>
+                  <li>
+                    Conduct user research and usability testing to inform design
+                    decisions
+                  </li>
+                  <li>
+                    Create wireframes, prototypes, and high-fidelity mockups
+                  </li>
+                  <li>
+                    Collaborate with product managers and engineers to implement
+                    designs
+                  </li>
+                  <li>
+                    Maintain and evolve our design system and brand guidelines
+                  </li>
+                </div>
+                <div class="job-requirements">
+                  <li>3+ years of UX/UI design experience</li>
+                  <li>
+                    Proficiency in design tools (Figma, Sketch, Adobe Creative
+                    Suite)
+                  </li>
+                  <li>
+                    Strong portfolio demonstrating user-centered design process
+                  </li>
+                  <li>Understanding of HTML/CSS and design systems</li>
+                  <li>Experience with user research methodologies</li>
+                  <li>Bachelor's degree in Design, HCI, or related field</li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with creative bonuses</li>
+                  <li>Access to latest design tools and software</li>
+                  <li>Flexible work arrangements</li>
+                  <li>Health and wellness benefits</li>
+                  <li>Design conference and workshop budget</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('UX/UI Designer')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 4: Data Scientist -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Data Scientist</h3>
+              <div class="job-salary">$125K - $165K</div>
+              <div class="job-meta">
+                <span>Analytics</span>
+                <span>Remote</span>
+                <span>Full-time</span>
+              </div>
+              <div class="job-description">
+                Join our data team to extract insights from complex datasets and
+                drive business decisions through advanced analytics and machine
+                learning.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Develop and deploy machine learning models to solve business
+                    problems
+                  </li>
+                  <li>
+                    Analyze large datasets to identify trends and actionable
+                    insights
+                  </li>
+                  <li>Create data pipelines and automated reporting systems</li>
+                  <li>
+                    Collaborate with stakeholders to define key metrics and KPIs
+                  </li>
+                  <li>
+                    Present findings and recommendations to executive leadership
+                  </li>
+                </div>
+                <div class="job-requirements">
+                  <li>
+                    PhD or Master's in Data Science, Statistics, Computer
+                    Science, or related field
+                  </li>
+                  <li>
+                    3+ years of experience in data science or analytics roles
+                  </li>
+                  <li>Strong programming skills in Python/R and SQL</li>
+                  <li>
+                    Experience with ML frameworks (TensorFlow, PyTorch,
+                    scikit-learn)
+                  </li>
+                  <li>
+                    Knowledge of statistical analysis and hypothesis testing
+                  </li>
+                  <li>
+                    Experience with cloud platforms (AWS, GCP) and big data
+                    tools
+                  </li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with equity participation</li>
+                  <li>Fully remote work environment</li>
+                  <li>Access to cutting-edge tools and technologies</li>
+                  <li>Conference and training budget</li>
+                  <li>Comprehensive benefits package</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('Data Scientist')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 5: Marketing Intern -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Marketing Intern</h3>
+              <div class="job-salary">$25/hour</div>
+              <div class="job-meta">
+                <span>Marketing</span>
+                <span>Austin, TX</span>
+                <span>Internship</span>
+              </div>
+              <div class="job-description">
+                Gain hands-on experience in digital marketing while supporting
+                our marketing team's initiatives. This internship offers
+                exposure to various marketing channels and strategies.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Assist with social media content creation and management
+                  </li>
+                  <li>
+                    Support email marketing campaigns and analyze performance
+                    metrics
+                  </li>
+                  <li>Help with market research and competitive analysis</li>
+                  <li>
+                    Create marketing materials and assist with event planning
+                  </li>
+                  <li>Collaborate on content marketing initiatives</li>
+                </div>
+                <div class="job-requirements">
+                  <li>
+                    Currently pursuing a degree in Marketing, Communications, or
+                    related field
+                  </li>
+                  <li>Strong written and verbal communication skills</li>
+                  <li>
+                    Familiarity with social media platforms and digital
+                    marketing
+                  </li>
+                  <li>
+                    Basic knowledge of design tools (Canva, Adobe Creative
+                    Suite)
+                  </li>
+                  <li>Analytical mindset with attention to detail</li>
+                  <li>Enthusiasm for learning and professional growth</li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive hourly wage</li>
+                  <li>Mentorship from senior marketing professionals</li>
+                  <li>Flexible schedule to accommodate classes</li>
+                  <li>Potential for full-time offer upon graduation</li>
+                  <li>Access to marketing tools and training resources</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('Marketing Intern')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 6: Backend Engineer -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>Backend Engineer</h3>
+              <div class="job-salary">$115K - $155K</div>
+              <div class="job-meta">
+                <span>Engineering</span>
+                <span>Seattle, WA</span>
+                <span>Full-time</span>
+              </div>
+              <div class="job-description">
+                Build scalable, robust backend systems that power our
+                applications. You'll work with modern technologies to create
+                APIs and services that serve millions of users.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Design and develop scalable backend APIs and microservices
+                  </li>
+                  <li>
+                    Optimize database performance and implement caching
+                    strategies
+                  </li>
+                  <li>
+                    Collaborate with frontend teams to integrate systems
+                    effectively
+                  </li>
+                  <li>
+                    Implement security best practices and monitoring solutions
+                  </li>
+                  <li>Participate in on-call rotation and incident response</li>
+                </div>
+                <div class="job-requirements">
+                  <li>4+ years of backend development experience</li>
+                  <li>Strong proficiency in Node.js, Python, or Go</li>
+                  <li>Experience with relational and NoSQL databases</li>
+                  <li>Knowledge of cloud platforms (AWS, Azure, GCP)</li>
+                  <li>
+                    Understanding of containerization (Docker, Kubernetes)
+                  </li>
+                  <li>
+                    Experience with API design and microservices architecture
+                  </li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with stock options</li>
+                  <li>Hybrid work environment</li>
+                  <li>Technical learning and development budget</li>
+                  <li>Comprehensive health and retirement benefits</li>
+                  <li>Flexible PTO policy</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('Backend Engineer')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
+
+          <!-- Job 7: DevOps Engineer -->
+          <div class="job-card">
+            <div class="job-info">
+              <h3>DevOps Engineer</h3>
+              <div class="job-salary">$130K - $170K</div>
+              <div class="job-meta">
+                <span>Infrastructure</span>
+                <span>Remote</span>
+                <span>Full-time</span>
+              </div>
+              <div class="job-description">
+                Lead our infrastructure and deployment strategies. You'll be
+                responsible for maintaining reliable, scalable systems and
+                improving our development workflows.
+              </div>
+              <!-- Hidden detailed information for modal -->
+              <div class="job-details" style="display: none">
+                <div class="job-responsibilities">
+                  <li>
+                    Manage and optimize cloud infrastructure across multiple
+                    environments
+                  </li>
+                  <li>Implement CI/CD pipelines and deployment automation</li>
+                  <li>
+                    Monitor system performance and implement alerting solutions
+                  </li>
+                  <li>
+                    Ensure security compliance and implement best practices
+                  </li>
+                  <li>
+                    Collaborate with development teams to improve deployment
+                    processes
+                  </li>
+                </div>
+                <div class="job-requirements">
+                  <li>5+ years of DevOps or Infrastructure experience</li>
+                  <li>
+                    Strong experience with AWS, Azure, or Google Cloud Platform
+                  </li>
+                  <li>
+                    Proficiency in Infrastructure as Code (Terraform,
+                    CloudFormation)
+                  </li>
+                  <li>
+                    Experience with containerization and orchestration (Docker,
+                    Kubernetes)
+                  </li>
+                  <li>
+                    Knowledge of monitoring tools (Prometheus, Grafana, ELK
+                    stack)
+                  </li>
+                  <li>Scripting skills in Python, Bash, or PowerShell</li>
+                </div>
+                <div class="job-benefits">
+                  <li>Competitive salary with equity package</li>
+                  <li>Fully remote work flexibility</li>
+                  <li>Technology and certification budget</li>
+                  <li>Premium health and wellness benefits</li>
+                  <li>Flexible time off policy</li>
+                </div>
+              </div>
+            </div>
+            <div class="job-actions">
+              <button class="view-details-btn" onclick="openJobModal(this)">
+                View Details
+              </button>
+              <button
+                class="apply-btn"
+                onclick="openApplicationModal('DevOps Engineer')"
+              >
+                Apply Now
+              </button>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>    </section>
+
+    <!-- FAQs Section -->
+    <section class="faqs">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Get answers to common questions about our hiring process, company
+          culture, and career opportunities.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              What is the interview process like?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Our interview process typically consists of 3-4 stages: initial
+                screening call, technical assessment, team interview, and final
+                interview with leadership. We aim to complete the process within
+                2 weeks and provide feedback at every stage.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you offer internship programs?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes! We offer comprehensive summer and semester internship
+                programs for students and recent graduates. Interns work on real
+                projects, receive mentorship from senior team members, and have
+                opportunities for full-time conversion.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What technologies do you use?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We use modern technologies including React, Node.js, Python,
+                TypeScript, AWS, Docker, Kubernetes, and more. We're always
+                exploring new technologies and encourage continuous learning and
+                experimentation.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How do you support professional development?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                We provide annual learning budgets, conference attendance,
+                internal training sessions, mentorship programs, and support for
+                certifications and courses. We also have internal tech talks and
+                knowledge sharing sessions.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What's your company culture like?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Our culture is built on collaboration, innovation, and respect.
+                We value diversity, encourage open communication, and foster an
+                environment where everyone can contribute their best work while
+                maintaining work-life balance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <h3>Ready to Join Our Team?</h3>
-            <p>Follow us on social media and stay updated with our latest opportunities and company news!</p>
-            
-            <div class="social-icons">
-                <a href="#" class="social-icon" title="Email">📧</a>
-                <a href="#" class="social-icon" title="LinkedIn">💼</a>
-                <a href="#" class="social-icon" title="Instagram">📱</a>
-                <a href="#" class="social-icon" title="Twitter">🐦</a>
-            </div>
+      <div class="container">
+        <h3>Ready to Join Our Team?</h3>
+        <p>
+          Follow us on social media and stay updated with our latest
+          opportunities and company news!
+        </p>
 
-            <div class="newsletter">
-                <input type="email" placeholder="Enter your email for job updates" id="newsletterEmail">
-                <button onclick="subscribeNewsletter()">Subscribe</button>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 TechCorp. All rights reserved. | Privacy Policy | Terms of Service</p>
-            </div>
+        <div class="social-icons">
+          <a href="#" class="social-icon" title="Email">📧</a>
+          <a href="#" class="social-icon" title="LinkedIn">💼</a>
+          <a href="#" class="social-icon" title="Instagram">📱</a>
+          <a href="#" class="social-icon" title="Twitter">🐦</a>
         </div>
-    </footer>    <!-- Application Modal -->
+
+        <div class="newsletter">
+          <input
+            type="email"
+            placeholder="Enter your email for job updates"
+            id="newsletterEmail"
+          />
+          <button onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2024 TechCorp. All rights reserved. | Privacy Policy | Terms
+            of Service
+          </p>
+        </div>
+      </div>    </footer>
+
+    <!-- Application Modal -->
     <div id="applicationModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Apply for Position</h2>
-                <button class="close" onclick="closeModal()">&times;</button>
-            </div>
-            
-            <div id="successMessage" class="success-message">
-                🎉 Application submitted successfully! We'll review your application and get back to you within 3-5 business days.
-            </div>
-
-            <form id="applicationForm">
-                <div class="form-group">
-                    <label for="jobTitle">Position Applied For *</label>
-                    <input type="text" id="jobTitle" name="jobTitle" readonly>
-                </div>
-
-                <div class="form-group">
-                    <label for="fullName">Full Name *</label>
-                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
-                </div>
-
-                <div class="form-group">
-                    <label for="resume">Resume *</label>
-                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="coverLetter">Cover Letter</label>
-                    <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this position and what you can bring to our team..."></textarea>
-                </div>
-
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
-                    <button type="submit" class="btn-primary">Submit Application</button>
-                </div>
-            </form>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Apply for Position</h2>
+          <button class="close" onclick="closeModal()">&times;</button>
         </div>
-    </div>
+
+        <div id="successMessage" class="success-message">
+          🎉 Application submitted successfully! We'll review your application
+          and get back to you within 3-5 business days.
+        </div>
+
+        <form id="applicationForm">
+          <div class="form-group">
+            <label for="jobTitle">Position Applied For *</label>
+            <input type="text" id="jobTitle" name="jobTitle" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              required
+              placeholder="Enter your full name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your.email@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              placeholder="+1 (555) 123-4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="resume">Resume *</label>
+            <input
+              type="file"
+              id="resume"
+              name="resume"
+              accept=".pdf,.doc,.docx"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coverLetter">Cover Letter</label>
+            <textarea
+              id="coverLetter"
+              name="coverLetter"
+              placeholder="Tell us why you're interested in this position and what you can bring to our team..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="closeModal()">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">
+              Submit Application
+            </button>
+          </div>
+        </form>
+      </div>    </div>
 
     <!-- Job Description Modal -->
     <div id="jobDescriptionModal" class="job-description-modal">
-        <div class="job-modal-content">
-            <div class="job-modal-header">
-                <button class="job-modal-close" onclick="closeJobModal()">&times;</button>
-                <h2 id="jobModalTitle">Job Title</h2>
-                <div class="job-modal-meta" id="jobModalMeta">
-                    <!-- Meta info will be populated by JavaScript -->
-                </div>
-                <div class="job-modal-salary" id="jobModalSalary">
-                    <!-- Salary will be populated by JavaScript -->
-                </div>
-            </div>
-            
-            <div class="job-modal-body">
-                <div class="job-section">
-                    <h3><span class="job-section-icon">📋</span>Job Description</h3>
-                    <p class="job-description-text" id="jobModalDescription">
-                        <!-- Description will be populated by JavaScript -->
-                    </p>
-                </div>
-
-                <div class="job-section">
-                    <h3><span class="job-section-icon">🎯</span>Key Responsibilities</h3>
-                    <ul class="job-list" id="jobModalResponsibilities">
-                        <!-- Responsibilities will be populated by JavaScript -->
-                    </ul>
-                </div>
-
-                <div class="job-section">
-                    <h3><span class="job-section-icon">✅</span>Requirements</h3>
-                    <ul class="job-list" id="jobModalRequirements">
-                        <!-- Requirements will be populated by JavaScript -->
-                    </ul>
-                </div>
-
-                <div class="job-section">
-                    <h3><span class="job-section-icon">🎁</span>Benefits & Perks</h3>
-                    <ul class="job-list" id="jobModalBenefits">
-                        <!-- Benefits will be populated by JavaScript -->
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job-modal-footer">
-                <button class="btn-outline" onclick="closeJobModal()">Close</button>
-                <button class="btn-primary" onclick="applyFromJobModal()">Apply Now</button>
-            </div>
+      <div class="job-modal-content">
+        <div class="job-modal-header">
+          <button class="job-modal-close" onclick="closeJobModal()">
+            &times;
+          </button>
+          <h2 id="jobModalTitle">Job Title</h2>
+          <div class="job-modal-meta" id="jobModalMeta">
+            <!-- Meta info will be populated by JavaScript -->
+          </div>
+          <div class="job-modal-salary" id="jobModalSalary">
+            <!-- Salary will be populated by JavaScript -->
+          </div>
         </div>
-    </div>
 
-    <script>        // Job listings data
-        const jobs = [
-            {
-                title: "Senior Frontend Developer",
-                department: "Engineering",
-                location: "Remote",
-                type: "Full-time",
-                salary: "$120K - $160K",
-                description: "We're looking for an experienced Frontend Developer to join our dynamic engineering team. You'll be responsible for building responsive, high-performance web applications using modern technologies.",
-                responsibilities: [
-                    "Develop and maintain scalable frontend applications using React, TypeScript, and modern CSS frameworks",
-                    "Collaborate with designers and backend engineers to implement pixel-perfect, responsive designs",
-                    "Optimize applications for maximum speed and scalability across all devices",
-                    "Write clean, maintainable code and participate in code reviews",
-                    "Mentor junior developers and contribute to technical architecture decisions"
-                ],
-                requirements: [
-                    "5+ years of experience in frontend development",
-                    "Expert knowledge of React, TypeScript, HTML5, CSS3, and JavaScript ES6+",
-                    "Experience with state management libraries (Redux, Zustand, or similar)",
-                    "Proficiency with build tools (Webpack, Vite) and version control (Git)",
-                    "Strong understanding of responsive design and cross-browser compatibility",
-                    "Experience with testing frameworks (Jest, React Testing Library)",
-                    "Excellent communication skills and ability to work in a collaborative environment"
-                ],
-                benefits: [
-                    "Competitive salary with equity options",
-                    "Flexible remote work environment",
-                    "Professional development budget ($3,000/year)",
-                    "Top-tier health, dental, and vision insurance",
-                    "Unlimited PTO policy"
-                ]
-            },
-            {
-                title: "Product Manager",
-                department: "Product",
-                location: "New York, NY",
-                type: "Full-time",
-                salary: "$130K - $170K",
-                description: "Join our product team to drive the strategy and execution of our core products. You'll work cross-functionally to deliver exceptional user experiences and drive business growth.",
-                responsibilities: [
-                    "Define product strategy and roadmap based on market research and user feedback",
-                    "Collaborate with engineering, design, and marketing teams to deliver product features",
-                    "Analyze product metrics and user behavior to make data-driven decisions",
-                    "Conduct user research and competitive analysis to identify opportunities",
-                    "Manage product launches and coordinate go-to-market strategies"
-                ],
-                requirements: [
-                    "3+ years of product management experience in tech companies",
-                    "Strong analytical skills with experience in data analysis tools",
-                    "Excellent communication and stakeholder management skills",
-                    "Experience with agile development methodologies",
-                    "Bachelor's degree in Business, Engineering, or related field",
-                    "Experience with product management tools (Jira, Figma, Analytics platforms)"
-                ],
-                benefits: [
-                    "Competitive salary with performance bonuses",
-                    "Hybrid work model (3 days in office)",
-                    "Stock options and 401(k) matching",
-                    "Comprehensive health benefits",
-                    "Professional conference attendance budget"
-                ]
-            },
-            {
-                title: "UX/UI Designer",
-                department: "Design",
-                location: "San Francisco, CA",
-                type: "Full-time",
-                salary: "$110K - $140K",
-                description: "We're seeking a creative UX/UI Designer to help shape the user experience of our products. You'll be responsible for creating intuitive, beautiful interfaces that delight our users.",
-                responsibilities: [
-                    "Design user-centered interfaces for web and mobile applications",
-                    "Conduct user research and usability testing to inform design decisions",
-                    "Create wireframes, prototypes, and high-fidelity mockups",
-                    "Collaborate with product managers and engineers to implement designs",
-                    "Maintain and evolve our design system and brand guidelines"
-                ],
-                requirements: [
-                    "3+ years of UX/UI design experience",
-                    "Proficiency in design tools (Figma, Sketch, Adobe Creative Suite)",
-                    "Strong portfolio demonstrating user-centered design process",
-                    "Understanding of HTML/CSS and design systems",
-                    "Experience with user research methodologies",
-                    "Bachelor's degree in Design, HCI, or related field"
-                ],
-                benefits: [
-                    "Competitive salary with creative bonuses",
-                    "Access to latest design tools and software",
-                    "Flexible work arrangements",
-                    "Health and wellness benefits",
-                    "Design conference and workshop budget"
-                ]
-            },
-            {
-                title: "Data Scientist",
-                department: "Analytics",
-                location: "Remote",
-                type: "Full-time",
-                salary: "$125K - $165K",
-                description: "Join our data team to extract insights from complex datasets and drive business decisions through advanced analytics and machine learning.",
-                responsibilities: [
-                    "Develop and deploy machine learning models to solve business problems",
-                    "Analyze large datasets to identify trends and actionable insights",
-                    "Create data pipelines and automated reporting systems",
-                    "Collaborate with stakeholders to define key metrics and KPIs",
-                    "Present findings and recommendations to executive leadership"
-                ],
-                requirements: [
-                    "PhD or Master's in Data Science, Statistics, Computer Science, or related field",
-                    "3+ years of experience in data science or analytics roles",
-                    "Strong programming skills in Python/R and SQL",
-                    "Experience with ML frameworks (TensorFlow, PyTorch, scikit-learn)",
-                    "Knowledge of statistical analysis and hypothesis testing",
-                    "Experience with cloud platforms (AWS, GCP) and big data tools"
-                ],
-                benefits: [
-                    "Competitive salary with equity participation",
-                    "Fully remote work environment",
-                    "Access to cutting-edge tools and technologies",
-                    "Conference and training budget",
-                    "Comprehensive benefits package"
-                ]
-            },
-            {
-                title: "Marketing Intern",
-                department: "Marketing",
-                location: "Austin, TX",
-                type: "Internship",
-                salary: "$25/hour",
-                description: "Gain hands-on experience in digital marketing while supporting our marketing team's initiatives. This internship offers exposure to various marketing channels and strategies.",
-                responsibilities: [
-                    "Assist with social media content creation and management",
-                    "Support email marketing campaigns and analyze performance metrics",
-                    "Help with market research and competitive analysis",
-                    "Create marketing materials and assist with event planning",
-                    "Collaborate on content marketing initiatives"
-                ],
-                requirements: [
-                    "Currently pursuing a degree in Marketing, Communications, or related field",
-                    "Strong written and verbal communication skills",
-                    "Familiarity with social media platforms and digital marketing",
-                    "Basic knowledge of design tools (Canva, Adobe Creative Suite)",
-                    "Analytical mindset with attention to detail",
-                    "Enthusiasm for learning and professional growth"
-                ],
-                benefits: [
-                    "Competitive hourly wage",
-                    "Mentorship from senior marketing professionals",
-                    "Flexible schedule to accommodate classes",
-                    "Potential for full-time offer upon graduation",
-                    "Access to marketing tools and training resources"
-                ]
-            },
-            {
-                title: "Backend Engineer",
-                department: "Engineering",
-                location: "Seattle, WA",
-                type: "Full-time",
-                salary: "$115K - $155K",
-                description: "Build scalable, robust backend systems that power our applications. You'll work with modern technologies to create APIs and services that serve millions of users.",
-                responsibilities: [
-                    "Design and develop scalable backend APIs and microservices",
-                    "Optimize database performance and implement caching strategies",
-                    "Collaborate with frontend teams to integrate systems effectively",
-                    "Implement security best practices and monitoring solutions",
-                    "Participate in on-call rotation and incident response"
-                ],
-                requirements: [
-                    "4+ years of backend development experience",
-                    "Strong proficiency in Node.js, Python, or Go",
-                    "Experience with relational and NoSQL databases",
-                    "Knowledge of cloud platforms (AWS, Azure, GCP)",
-                    "Understanding of containerization (Docker, Kubernetes)",
-                    "Experience with API design and microservices architecture"
-                ],
-                benefits: [
-                    "Competitive salary with stock options",
-                    "Hybrid work environment",
-                    "Technical learning and development budget",
-                    "Comprehensive health and retirement benefits",
-                    "Flexible PTO policy"
-                ]
-            },
-            {
-                title: "DevOps Engineer",
-                department: "Infrastructure",
-                location: "Remote",
-                type: "Full-time",
-                salary: "$130K - $170K",
-                description: "Lead our infrastructure and deployment strategies. You'll be responsible for maintaining reliable, scalable systems and improving our development workflows.",
-                responsibilities: [
-                    "Manage and optimize cloud infrastructure across multiple environments",
-                    "Implement CI/CD pipelines and deployment automation",
-                    "Monitor system performance and implement alerting solutions",
-                    "Ensure security compliance and implement best practices",
-                    "Collaborate with development teams to improve deployment processes"
-                ],
-                requirements: [
-                    "5+ years of DevOps or Infrastructure experience",
-                    "Strong experience with AWS, Azure, or Google Cloud Platform",
-                    "Proficiency in Infrastructure as Code (Terraform, CloudFormation)",
-                    "Experience with containerization and orchestration (Docker, Kubernetes)",
-                    "Knowledge of monitoring tools (Prometheus, Grafana, ELK stack)",
-                    "Scripting skills in Python, Bash, or PowerShell"
-                ],
-                benefits: [
-                    "Competitive salary with equity package",
-                    "Fully remote work flexibility",
-                    "Technology and certification budget",
-                    "Premium health and wellness benefits",
-                    "Flexible time off policy"
-                ]
-            }
-        ];
+        <div class="job-modal-body">
+          <div class="job-section">
+            <h3><span class="job-section-icon">📋</span>Job Description</h3>
+            <p class="job-description-text" id="jobModalDescription">
+              <!-- Description will be populated by JavaScript -->
+            </p>
+          </div>
 
-        // Populate jobs on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            populateJobs();
-            setupAnimations();
-            setupFAQs();
-        });        function populateJobs() {
-            const jobsGrid = document.getElementById('jobsGrid');
-            jobsGrid.innerHTML = '';
+          <div class="job-section">
+            <h3>
+              <span class="job-section-icon">🎯</span>Key Responsibilities
+            </h3>
+            <ul class="job-list" id="jobModalResponsibilities">
+              <!-- Responsibilities will be populated by JavaScript -->
+            </ul>
+          </div>
 
-            jobs.forEach((job, index) => {
-                const jobCard = document.createElement('div');
-                jobCard.className = 'job-card';
-                jobCard.innerHTML = `
-                    <div class="job-info">
-                        <h3>${job.title}</h3>
-                        <div class="job-salary">${job.salary}</div>
-                        <div class="job-meta">
-                            <span>${job.department}</span>
-                            <span>${job.location}</span>
-                            <span>${job.type}</span>
-                        </div>
-                        <div class="job-description">
-                            ${job.description}
-                        </div>
-                    </div>
-                    <div class="job-actions">
-                        <button class="view-details-btn" onclick="openJobDescriptionModal(${index})">
-                            View Details
-                        </button>
-                        <button class="apply-btn" onclick="openApplicationModal('${job.title}')">
-                            Apply Now
-                        </button>
-                    </div>
-                `;
-                jobsGrid.appendChild(jobCard);
-            });
+          <div class="job-section">
+            <h3><span class="job-section-icon">✅</span>Requirements</h3>
+            <ul class="job-list" id="jobModalRequirements">
+              <!-- Requirements will be populated by JavaScript -->
+            </ul>
+          </div>
+
+          <div class="job-section">
+            <h3><span class="job-section-icon">🎁</span>Benefits & Perks</h3>
+            <ul class="job-list" id="jobModalBenefits">
+              <!-- Benefits will be populated by JavaScript -->
+            </ul>
+          </div>
+        </div>
+
+        <div class="job-modal-footer">
+          <button class="btn-outline" onclick="closeJobModal()">Close</button>
+          <button class="btn-primary" onclick="applyFromJobModal()">
+            Apply Now
+          </button>
+        </div>
+      </div>
+    </div>    <script>
+      /* Job Modal Functionality */
+      function openJobModal(button) {        try {
+          const jobCard = button.closest(".job-card");
+          if (!jobCard) {
+            alert("Error: Could not find job card container");
+            return;
+          }
+
+          const jobInfo = jobCard.querySelector(".job-info");
+          if (!jobInfo) {
+            alert("Error: Could not find job info section");
+            return;
+          }
+
+          // Extract basic job information
+          const titleElement = jobInfo.querySelector("h3");
+          const salaryElement = jobInfo.querySelector(".job-salary");
+          const descriptionElement = jobInfo.querySelector(".job-description");
+
+          if (!titleElement || !salaryElement || !descriptionElement) {
+            alert("Error: Missing basic job information elements");
+            return;
+          }
+
+          const title = titleElement.textContent;
+          const salary = salaryElement.textContent;          const description = descriptionElement.textContent;
+          const metaSpans = jobInfo.querySelectorAll(".job-meta span");
+
+          // Extract detailed information from job-details section
+          const jobDetails = jobInfo.querySelector(".job-details");
+          if (!jobDetails) {
+            alert("Error: Could not find job details section");
+            return;
+          }
+
+          const responsibilitiesSection = jobDetails.querySelector(
+            ".job-responsibilities"
+          );
+          const requirementsSection =
+            jobDetails.querySelector(".job-requirements");
+          const benefitsSection = jobDetails.querySelector(".job-benefits");
+
+          if (
+            !responsibilitiesSection ||
+            !requirementsSection ||
+            !benefitsSection
+          ) {
+            alert("Error: Missing detailed job information sections");
+            return;
+          }
+
+          const responsibilities =
+            responsibilitiesSection.querySelectorAll("li");          const requirements = requirementsSection.querySelectorAll("li");
+          const benefits = benefitsSection.querySelectorAll("li");
+
+          // Get modal element and populate information
+          const modal = document.getElementById("jobDescriptionModal");
+          if (!modal) {
+            alert("Error: Could not find job description modal");            return;
+          }
+
+          // Populate basic job information
+          const modalTitle = document.getElementById("jobModalTitle");
+          const modalSalary = document.getElementById("jobModalSalary");
+          const modalDescription = document.getElementById(
+            "jobModalDescription"
+          );
+
+          if (modalTitle) modalTitle.textContent = title;
+          if (modalSalary) modalSalary.textContent = salary;          if (modalDescription) modalDescription.textContent = description;
+
+          // Populate job metadata
+          const metaContainer = document.getElementById("jobModalMeta");
+          if (metaContainer) {
+            metaContainer.innerHTML = Array.from(metaSpans)
+              .map((span) => `<span>${span.textContent}</span>`)              .join("");
+          }
+
+          // Populate responsibilities list
+          const responsibilitiesContainer = document.getElementById(
+            "jobModalResponsibilities"
+          );
+          if (responsibilitiesContainer) {
+            responsibilitiesContainer.innerHTML = Array.from(responsibilities)
+              .map((li) => `<li>${li.textContent}</li>`)              .join("");
+          }
+
+          // Populate requirements list
+          const requirementsContainer = document.getElementById(
+            "jobModalRequirements"
+          );
+          if (requirementsContainer) {
+            requirementsContainer.innerHTML = Array.from(requirements)
+              .map((li) => `<li>${li.textContent}</li>`)              .join("");
+          }
+
+          // Populate benefits list
+          const benefitsContainer = document.getElementById("jobModalBenefits");
+          if (benefitsContainer) {
+            benefitsContainer.innerHTML = Array.from(benefits)
+              .map((li) => `<li>${li.textContent}</li>`)              .join("");
+          }
+
+          // Store job title and display modal          modal.setAttribute("data-job-title", title);
+
+          modal.classList.add("show");
+          document.body.style.overflow = "hidden";
+        } catch (error) {
+          alert("Error opening job modal: " + error.message);
         }
+      }
 
-        let currentJobIndex = null;
+      function closeJobModal() {
+        const modal = document.getElementById("jobDescriptionModal");
+        modal.classList.remove("show");        document.body.style.overflow = "";
+      }
 
-        function openJobDescriptionModal(jobIndex) {
-            currentJobIndex = jobIndex;
-            const job = jobs[jobIndex];
-            const modal = document.getElementById('jobDescriptionModal');
-            
-            // Populate modal content
-            document.getElementById('jobModalTitle').textContent = job.title;
-            document.getElementById('jobModalSalary').textContent = job.salary;
-            document.getElementById('jobModalDescription').textContent = job.description;
-            
-            // Populate meta info
-            const metaContainer = document.getElementById('jobModalMeta');
-            metaContainer.innerHTML = `
-                <span>${job.department}</span>
-                <span>${job.location}</span>
-                <span>${job.type}</span>
-            `;
-            
-            // Populate responsibilities
-            const responsibilitiesContainer = document.getElementById('jobModalResponsibilities');
-            responsibilitiesContainer.innerHTML = job.responsibilities
-                .map(responsibility => `<li>${responsibility}</li>`)
-                .join('');
-            
-            // Populate requirements
-            const requirementsContainer = document.getElementById('jobModalRequirements');
-            requirementsContainer.innerHTML = job.requirements
-                .map(requirement => `<li>${requirement}</li>`)
-                .join('');
-            
-            // Populate benefits
-            const benefitsContainer = document.getElementById('jobModalBenefits');
-            benefitsContainer.innerHTML = job.benefits
-                .map(benefit => `<li>${benefit}</li>`)
-                .join('');
-            
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
+      function applyFromJobModal() {
+        const modal = document.getElementById("jobDescriptionModal");
+        const jobTitle = modal.getAttribute("data-job-title");        closeJobModal();
 
-        function closeJobModal() {
-            const modal = document.getElementById('jobDescriptionModal');
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-            currentJobIndex = null;
-        }
+        setTimeout(() => {
+          openApplicationModal(jobTitle);
+        }, 300);
+      }
 
-        function applyFromJobModal() {
-            if (currentJobIndex !== null) {
-                const job = jobs[currentJobIndex];
-                closeJobModal();
-                setTimeout(() => {
-                    openApplicationModal(job.title);
-                }, 300);
-            }
-        }
+      /* Modal Event Listeners */
 
-        // Close job modal when clicking outside
-        document.getElementById('jobDescriptionModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeJobModal();
-            }
+      // Close job modal when clicking outside the modal content
+      document
+        .getElementById("jobDescriptionModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeJobModal();
+          }
         });
 
-        // Close job modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (document.getElementById('jobDescriptionModal').classList.contains('show')) {
-                    closeJobModal();
-                } else if (document.getElementById('applicationModal').classList.contains('show')) {
-                    closeModal();
-                }
+      // Handle Escape key for closing modals
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          // Close job detail modal if open
+          if (
+            document
+              .getElementById("jobDescriptionModal")
+              .classList.contains("show")
+          ) {
+            closeJobModal();
+          }
+          // Close application modal if open
+          else if (
+            document
+              .getElementById("applicationModal")
+              .classList.contains("show")
+          ) {
+            closeModal();
+          }        }
+      });
+
+      /* Page Initialization */
+      document.addEventListener("DOMContentLoaded", function () {
+        setupAnimations();
+        setupFAQs();
+      });
+
+      /* Application Modal Functions */
+      function openApplicationModal(jobTitle) {
+        const modal = document.getElementById("applicationModal");
+        const jobTitleInput = document.getElementById("jobTitle");
+        const successMessage = document.getElementById("successMessage");
+
+        // Pre-fill the job title and prepare the modal
+        jobTitleInput.value = jobTitle;
+        successMessage.classList.remove("show");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";        document.getElementById("applicationForm").reset();
+        jobTitleInput.value = jobTitle;
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("applicationModal");
+        modal.classList.remove("show");        document.body.style.overflow = "";
+      }
+
+      // Modal event listeners
+      document
+        .getElementById("applicationModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeModal();
+          }        });
+
+      /* Form Validation & Submission */
+      document
+        .getElementById("applicationForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Validate form
+          const formData = new FormData(this);
+          const requiredFields = ["fullName", "email", "phone", "resume"];
+          let isValid = true;
+
+          requiredFields.forEach((field) => {
+            const value = formData.get(field);
+            if (!value || (field === "resume" && !value.name)) {
+              isValid = false;
+              const input = document.getElementById(field);
+              input.style.borderColor = "#ef4444";
+              input.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.1)";
+              setTimeout(() => {
+                input.style.borderColor = "#e2e8f0";
+                input.style.boxShadow = "";
+              }, 3000);
             }
-        });
+          });
 
-        function openApplicationModal(jobTitle) {
-            const modal = document.getElementById('applicationModal');
-            const jobTitleInput = document.getElementById('jobTitle');
-            const successMessage = document.getElementById('successMessage');
-            
-            jobTitleInput.value = jobTitle;
-            successMessage.classList.remove('show');
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-            
-            // Reset form
-            document.getElementById('applicationForm').reset();
-            jobTitleInput.value = jobTitle; // Restore job title after reset
-        }
+          // Email validation
+          const email = formData.get("email");
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (email && !emailRegex.test(email)) {
+            isValid = false;
+            const emailInput = document.getElementById("email");
+            emailInput.style.borderColor = "#ef4444";
+            emailInput.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.1)";
+            setTimeout(() => {
+              emailInput.style.borderColor = "#e2e8f0";
+              emailInput.style.boxShadow = "";
+            }, 3000);
+          }
 
-        function closeModal() {
-            const modal = document.getElementById('applicationModal');
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
+          // Phone validation
+          const phone = formData.get("phone");
+          const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+          if (phone && !phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ""))) {
+            isValid = false;
+            const phoneInput = document.getElementById("phone");
+            phoneInput.style.borderColor = "#ef4444";
+            phoneInput.style.boxShadow = "0 0 0 3px rgba(239, 68, 68, 0.1)";
+            setTimeout(() => {
+              phoneInput.style.borderColor = "#e2e8f0";
+              phoneInput.style.boxShadow = "";
+            }, 3000);
+          }
 
-        // Close modal when clicking outside
-        document.getElementById('applicationModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
+          if (isValid) {
+            // Show success message
+            const successMessage = document.getElementById("successMessage");
+            successMessage.classList.add("show");
+
+            // Hide form temporarily
+            const form = document.getElementById("applicationForm");
+            form.style.display = "none";
+
+            setTimeout(() => {
+              closeModal();
+              form.style.display = "block";
+            }, 3000);
+          }        });
+
+      /* Animation Setup */
+      function setupAnimations() {
+        // Animate benefit cards on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("fade-in-up");
+              }, index * 150);
             }
-        });
+          });
+        }, observerOptions);
 
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
+        document
+          .querySelectorAll(".benefit-card, .life-card, .job-card")
+          .forEach((card) => {
+            observer.observe(card);
+          });
 
-        // Form submission
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+        // Smooth scrolling for CTA button
+        document
+          .querySelector(".cta-button")
+          .addEventListener("click", function (e) {
             e.preventDefault();
-            
-            // Validate form
-            const formData = new FormData(this);
-            const requiredFields = ['fullName', 'email', 'phone', 'resume'];
-            let isValid = true;
+            const target = document.querySelector(this.getAttribute("href"));
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });          });
+      }
 
-            requiredFields.forEach(field => {
-                const value = formData.get(field);
-                if (!value || (field === 'resume' && !value.name)) {
-                    isValid = false;
-                    const input = document.getElementById(field);
-                    input.style.borderColor = '#ef4444';
-                    input.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
-                    setTimeout(() => {
-                        input.style.borderColor = '#e2e8f0';
-                        input.style.boxShadow = '';
-                    }, 3000);
-                }
+      /* FAQ Functionality */
+      function setupFAQs() {
+        document.querySelectorAll(".faq-question").forEach((question) => {
+          question.addEventListener("click", function () {
+            const faqItem = this.parentElement;
+            const answer = faqItem.querySelector(".faq-answer");
+            const isActive = faqItem.classList.contains("active");
+
+            // Close all FAQs
+            document.querySelectorAll(".faq-item").forEach((item) => {
+              item.classList.remove("active");
+              item.querySelector(".faq-answer").classList.remove("active");
             });
 
-            // Email validation
-            const email = formData.get('email');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (email && !emailRegex.test(email)) {
-                isValid = false;
-                const emailInput = document.getElementById('email');
-                emailInput.style.borderColor = '#ef4444';
-                emailInput.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
-                setTimeout(() => {
-                    emailInput.style.borderColor = '#e2e8f0';
-                    emailInput.style.boxShadow = '';
-                }, 3000);
+            // Open clicked FAQ if it wasn't active
+            if (!isActive) {
+              faqItem.classList.add("active");
+              answer.classList.add("active");
             }
+          });        });
+      }
 
-            // Phone validation
-            const phone = formData.get('phone');
-            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-            if (phone && !phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''))) {
-                isValid = false;
-                const phoneInput = document.getElementById('phone');
-                phoneInput.style.borderColor = '#ef4444';
-                phoneInput.style.boxShadow = '0 0 0 3px rgba(239, 68, 68, 0.1)';
-                setTimeout(() => {
-                    phoneInput.style.borderColor = '#e2e8f0';
-                    phoneInput.style.boxShadow = '';
-                }, 3000);
-            }
+      /* Newsletter Subscription */
+      function subscribeNewsletter() {
+        const email = document.getElementById("newsletterEmail").value;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-            if (isValid) {
-                // Show success message
-                const successMessage = document.getElementById('successMessage');
-                successMessage.classList.add('show');
-                
-                // Hide form temporarily
-                const form = document.getElementById('applicationForm');
-                form.style.display = 'none';
-                
-                setTimeout(() => {
-                    closeModal();
-                    form.style.display = 'block';
-                }, 3000);
-            }
+        if (email && emailRegex.test(email)) {
+          alert("Thank you for subscribing to our newsletter! 🎉");
+          document.getElementById("newsletterEmail").value = "";
+        } else {
+          alert("Please enter a valid email address.");        }
+      }
+
+      /* Interactive Enhancements */
+      document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("click", function (e) {
+          if (e.target.classList.contains("apply-btn")) {
+            e.target.style.transform = "scale(0.95)";
+            setTimeout(() => {
+              e.target.style.transform = "";
+            }, 150);
+          }
         });
-
-        // Setup animations
-        function setupAnimations() {
-            // Animate benefit cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add('fade-in-up');
-                        }, index * 150);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.benefit-card, .life-card, .job-card').forEach(card => {
-                observer.observe(card);
-            });
-
-            // Smooth scrolling for CTA button
-            document.querySelector('.cta-button').addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            });
-        }
-
-        // Setup FAQs
-        function setupFAQs() {
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function() {
-                    const faqItem = this.parentElement;
-                    const answer = faqItem.querySelector('.faq-answer');
-                    const isActive = faqItem.classList.contains('active');
-
-                    // Close all FAQs
-                    document.querySelectorAll('.faq-item').forEach(item => {
-                        item.classList.remove('active');
-                        item.querySelector('.faq-answer').classList.remove('active');
-                    });
-
-                    // Open clicked FAQ if it wasn't active
-                    if (!isActive) {
-                        faqItem.classList.add('active');
-                        answer.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // Newsletter subscription
-        function subscribeNewsletter() {
-            const email = document.getElementById('newsletterEmail').value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (email && emailRegex.test(email)) {
-                alert('Thank you for subscribing to our newsletter! 🎉');
-                document.getElementById('newsletterEmail').value = '';
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        }
-
-        // Add some interactive polish
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add loading animation to apply buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('apply-btn')) {
-                    e.target.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        e.target.style.transform = '';
-                    }, 150);
-                }
-            });
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
