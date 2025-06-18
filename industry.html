@@ -273,78 +273,324 @@
         .stat-description {
             font-size: 0.9rem;
             color: var(--text-secondary);
-        }
-
-        /* Industries Grid */
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .industry-card {
+        }        /* Industries Grid */
+        .industries-grid-section {
+            padding: 120px 0;
+            background: var(--gradient-primary);
             position: relative;
-            height: 400px;
-            border-radius: 24px;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
-        .industry-card:nth-child(odd) {
-            transform: translateY(-20px);
-        }
-
-        .industry-card:hover {
-            transform: translateY(-30px) scale(1.05);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .industry-card:hover .industry-image {
-            transform: scale(1.15);
-            filter: brightness(1.2);
-        }
-
-        .industry-overlay {
+        .industries-grid-section::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.8), rgba(15, 52, 96, 0.8));
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .industries-grid-section .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .industries-grid-section .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .industries-grid-section .section-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        /* Main Content Layout */
+        .industry-content {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Left Industries */
+        .left-industries {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 2rem;
+            align-items: flex-end;
+        }
+
+        /* Right Industries */
+        .right-industries {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+        }        /* Central Infographic */
+        .central-infographic {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            display: flex;
             align-items: center;
-            opacity: 0;
-            transition: all 0.4s ease;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+
+        .central-infographic:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .infographic-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .infographic-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 18px;
+            opacity: 0.8;
+        }
+
+        .infographic-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.85) 0%, rgba(59, 130, 246, 0.85) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+        }
+
+        .infographic-content {
             text-align: center;
+            color: var(--text-light);
             padding: 2rem;
         }
 
-        .industry-card:hover .industry-overlay {
-            opacity: 1;
+        .infographic-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .infographic-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .infographic-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat {
+            font-size: 0.9rem;
+            font-weight: 500;
+            opacity: 0.9;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Industry Items */
+        .industry-item {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            max-width: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .industry-item:hover::before {
+            left: 100%;
+        }
+
+        .industry-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .left-industries .industry-item {
+            flex-direction: row-reverse;
+            text-align: right;
         }
 
         .industry-icon {
-            font-size: 3rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: white;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .industry-item:hover .industry-icon {
+            transform: scale(1.1);
+        }
+
+        .industry-text {
+            flex: 1;
         }
 
         .industry-title {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--text-light);
-            margin-bottom: 1rem;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+            transition: color 0.3s ease;
+        }
+
+        .industry-item:hover .industry-title {
+            color: #667eea;
         }
 
         .industry-description {
-            color: rgba(248, 250, 252, 0.9);
-            font-size: 0.9rem;
-            line-height: 1.6;
+            font-size: 0.8rem;
+            color: #64748b;
+            line-height: 1.4;
+            opacity: 0.8;
+        }
+
+        /* Unique colors for each industry */
+        .industry-item:nth-child(1) .industry-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .industry-item:nth-child(2) .industry-icon { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .industry-item:nth-child(3) .industry-icon { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .industry-item:nth-child(4) .industry-icon { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .industry-item:nth-child(5) .industry-icon { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+
+        /* Connection Lines */
+        .connection-line {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+            z-index: 1;
+        }
+
+        .line-left {
+            height: 150px;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .line-right {
+            height: 150px;
+            left: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Staggered animations */
+        .left-industries .industry-item:nth-child(1) { animation-delay: 0.1s; }
+        .left-industries .industry-item:nth-child(2) { animation-delay: 0.2s; }
+        .left-industries .industry-item:nth-child(3) { animation-delay: 0.3s; }
+        .left-industries .industry-item:nth-child(4) { animation-delay: 0.4s; }
+        .left-industries .industry-item:nth-child(5) { animation-delay: 0.5s; }
+
+        .right-industries .industry-item:nth-child(1) { animation-delay: 0.6s; }
+        .right-industries .industry-item:nth-child(2) { animation-delay: 0.7s; }
+        .right-industries .industry-item:nth-child(3) { animation-delay: 0.8s; }
+        .right-industries .industry-item:nth-child(4) { animation-delay: 0.9s; }
+        .right-industries .industry-item:nth-child(5) { animation-delay: 1.0s; }
+
+        .central-image {
+            animation-delay: 0.3s;
         }
 
         /* Service Areas */
@@ -420,23 +666,16 @@
         .service-description {
             color: var(--text-secondary);
             line-height: 1.7;
-        }
-
-        /* Expertise Showcase */
+        }        /* Expertise Showcase */
         .expertise-showcase {
             background: var(--surface-alt);
             overflow: hidden;
         }
 
-        .expertise-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .expertise-text {
-            padding: 2rem 0;
+        .expertise-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
         }
 
         .expertise-title {
@@ -451,33 +690,119 @@
             font-size: 1.1rem;
             color: var(--text-secondary);
             line-height: 1.8;
-            margin-bottom: 2rem;
         }
 
-        .expertise-features {
-            list-style: none;
-            margin-bottom: 3rem;
-        }
-
-        .expertise-features li {
+        /* Horizontal Accordion Styles */
+        .horizontal-accordion-container {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-weight: 500;
-            color: var(--text-primary);
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 4rem;
         }
 
-        .expertise-features i {
-            width: 24px;
-            height: 24px;
+        .horizontal-accordion-item {
+            position: relative;
+            flex: 1;
+            background: var(--surface);
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border-right: 1px solid var(--border);
+        }
+
+        .horizontal-accordion-item:last-child {
+            border-right: none;
+        }
+
+        .horizontal-accordion-item.active {
+            flex: 3;
+        }
+
+        .horizontal-accordion-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
             background: var(--gradient-primary);
+            color: var(--text-light);
+            z-index: 2;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .horizontal-accordion-item.active .horizontal-accordion-header {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        .horizontal-accordion-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-light);
-            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .horizontal-accordion-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.4;
+            writing-mode: horizontal-tb;
+            transform: rotate(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .horizontal-accordion-item:not(.active) .horizontal-accordion-title {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-size: 1rem;
+        }
+
+        .horizontal-accordion-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 3rem 2rem;
+            background: var(--surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .horizontal-accordion-item.active .horizontal-accordion-content {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .horizontal-accordion-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .expertise-cta-container {
+            text-align: center;
         }
 
         .expertise-cta {
@@ -1116,8 +1441,7 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            
-            .industries-grid {
+              .industries-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1125,9 +1449,90 @@
                 transform: none;
             }
             
-            .expertise-content {
+            /* Industry Content Responsive */
+            .industry-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .left-industries,
+            .right-industries {
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .left-industries .industry-item {
+                flex-direction: row;
+                text-align: left;
+            }            .central-infographic {
+                width: 250px;
+                height: 250px;
+                order: -1;
+            }
+
+            .connection-line {
+                display: none;
+            }.expertise-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+            }
+            
+            /* Horizontal Accordion Responsive Styles */
+            .horizontal-accordion-container {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .horizontal-accordion-item {
+                flex: none;
+                height: 80px;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+            
+            .horizontal-accordion-item:last-child {
+                border-bottom: none;
+            }
+            
+            .horizontal-accordion-item.active {
+                height: 250px;
+            }
+            
+            .horizontal-accordion-header {
+                flex-direction: row;
+                justify-content: flex-start;
+                text-align: left;
+            }
+            
+            .horizontal-accordion-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 0;
+                margin-right: 1rem;
+                font-size: 1rem;
+            }
+            
+            .horizontal-accordion-title {
+                writing-mode: horizontal-tb !important;
+                transform: rotate(0deg) !important;
+                font-size: 1rem !important;
+            }
+            
+            .horizontal-accordion-item.active .horizontal-accordion-header {
+                transform: translateY(-100%);
+            }
+            
+            .horizontal-accordion-content {
+                padding: 2rem 1.5rem;
+                transform: translateY(100%);
+            }
+            
+            .horizontal-accordion-item.active .horizontal-accordion-content {
+                transform: translateY(0);
             }
             
             .cta-buttons {
@@ -1184,10 +1589,89 @@
             
             .map-stat-number {
                 font-size: 2rem;
+            }            .map-stat-label {
+                font-size: 0.9rem;
             }
             
-            .map-stat-label {
+            /* Industry Section Mobile */
+            .industries-grid-section {
+                padding: 80px 0;
+            }
+
+            .industry-content {
+                gap: 2rem;
+            }
+
+            .left-industries,
+            .right-industries {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .industry-item {
+                max-width: 300px;
+                width: 100%;
+            }            .central-infographic {
+                width: 200px;
+                height: 200px;
+            }
+
+            .infographic-icon {
+                font-size: 2.5rem;
+            }
+
+            .infographic-text {
+                font-size: 1rem;
+            }
+
+            .industry-item {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .industry-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .industry-title {
                 font-size: 0.9rem;
+            }
+
+            .industry-description {
+                font-size: 0.75rem;
+            }
+            
+            /* Horizontal Accordion Mobile Styles */
+            .horizontal-accordion-item {
+                height: 70px;
+            }
+            
+            .horizontal-accordion-item.active {
+                height: 200px;
+            }
+            
+            .horizontal-accordion-header {
+                padding: 1rem;
+            }
+            
+            .horizontal-accordion-icon {
+                width: 35px;
+                height: 35px;
+                margin-right: 0.75rem;
+                font-size: 0.9rem;
+            }
+            
+            .horizontal-accordion-title {
+                font-size: 0.9rem !important;
+            }
+            
+            .horizontal-accordion-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .horizontal-accordion-content p {
+                font-size: 1rem;
             }
             
             .map-stat-description {
@@ -1482,124 +1966,226 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Industries Grid -->
-    <section id="industries" class="section">
+    </section>    <!-- Industries Grid -->
+    <section id="industries" class="section industries-grid-section">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="section-subtitle">Industry Expertise</div>
-                <h2 class="section-title">Sectors We Specialize In</h2>
-                <p class="section-description">
-                    From emerging startups to Fortune 500 companies, we deliver tailored solutions that address unique industry challenges and drive measurable results.
+            <div class="section-header">
+                <h2 class="section-title fade-in-up">Industry <span class="highlight">Expertise</span></h2>
+                <p class="section-subtitle fade-in-up">Sectors We Specialize In</p>
+            </div>
+
+            <div class="industry-content">
+                <!-- Left Industries -->
+                <div class="left-industries">
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-left"></div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Education</h3>
+                            <p class="industry-description">Transforming learning experiences with innovative educational technology</p>
+                        </div>
+                        <div class="industry-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-left"></div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Travel & Logistics</h3>
+                            <p class="industry-description">Streamlining operations with smart logistics solutions</p>
+                        </div>
+                        <div class="industry-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-left"></div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Food & Hospitality</h3>
+                            <p class="industry-description">Enhancing guest experiences and operational efficiency</p>
+                        </div>
+                        <div class="industry-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-left"></div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Telecom & Network</h3>
+                            <p class="industry-description">Building robust communication infrastructure</p>
+                        </div>
+                        <div class="industry-icon">
+                            <i class="fas fa-broadcast-tower"></i>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-left"></div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Real Estate</h3>
+                            <p class="industry-description">Revolutionizing property management with technology</p>
+                        </div>
+                        <div class="industry-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                </div>                <!-- Central Infographic -->
+                <div class="central-infographic fade-in-up">
+                    <div class="infographic-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=400&fit=crop&crop=center" alt="Industry Digital Transformation Infographic" class="infographic-image">
+                        <div class="infographic-overlay">
+                            <div class="infographic-content">
+                                <div class="infographic-icon">
+                                    <i class="fas fa-chart-network"></i>
+                                </div>
+                                <div class="infographic-text">Digital Solutions Hub</div>
+                                <div class="infographic-stats">
+                                    <span class="stat">500+ Projects</span>
+                                    <span class="stat">15+ Industries</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Industries -->
+                <div class="right-industries">
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-right"></div>
+                        <div class="industry-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Insurance & Financial</h3>
+                            <p class="industry-description">Securing financial futures with innovative solutions</p>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-right"></div>
+                        <div class="industry-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Sports & Entertainment</h3>
+                            <p class="industry-description">Creating immersive entertainment experiences</p>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-right"></div>
+                        <div class="industry-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">E-Commerce</h3>
+                            <p class="industry-description">Powering online businesses with scalable platforms</p>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-right"></div>
+                        <div class="industry-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Medical & Healthcare</h3>
+                            <p class="industry-description">Advancing healthcare delivery with medical technology</p>
+                        </div>
+                    </div>
+
+                    <div class="industry-item fade-in-up">
+                        <div class="connection-line line-right"></div>
+                        <div class="industry-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="industry-text">
+                            <h3 class="industry-title">Government & Embassies</h3>
+                            <p class="industry-description">Facilitating public services with secure platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- Expertise Showcase -->
+    <section id="expertise" class="section expertise-showcase">
+        <div class="container">
+            <div class="expertise-header" data-aos="fade-up">
+                <h2 class="expertise-title">Proven Industry Leadership</h2>
+                <p class="expertise-description">
+                    Our team combines deep industry knowledge with technical excellence to deliver solutions that not only meet current needs but anticipate future challenges. We've successfully guided organizations through complex digital transformations across multiple sectors.
                 </p>
             </div>
             
-            <div class="industries-grid">
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="100" onclick="openModal('healthcare')">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=400&fit=crop" alt="Healthcare" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-heartbeat industry-icon"></i>
-                        <h3 class="industry-title">Healthcare & Medical</h3>
-                        <p class="industry-description">Digital health solutions, telemedicine platforms, and medical device integrations that improve patient outcomes and streamline operations.</p>
+            <div class="horizontal-accordion-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="horizontal-accordion-item" onclick="toggleHorizontalAccordion(this)">
+                    <div class="horizontal-accordion-header">
+                        <div class="horizontal-accordion-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3 class="horizontal-accordion-title">Industry-Specific Expertise</h3>
+                    </div>
+                    <div class="horizontal-accordion-content">
+                        <p>Deep understanding of sector-specific challenges, regulations, and best practices across healthcare, finance, manufacturing, and technology industries. Our specialized knowledge ensures solutions that align perfectly with your business requirements.</p>
                     </div>
                 </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="200" onclick="openModal('technology')">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" alt="Technology" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-microchip industry-icon"></i>
-                        <h3 class="industry-title">Technology & Software</h3>
-                        <p class="industry-description">Custom software development, cloud solutions, and AI-powered applications that drive innovation and competitive advantage.</p>
+
+                <div class="horizontal-accordion-item" onclick="toggleHorizontalAccordion(this)">
+                    <div class="horizontal-accordion-header">
+                        <div class="horizontal-accordion-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="horizontal-accordion-title">Regulatory Compliance & Security</h3>
+                    </div>
+                    <div class="horizontal-accordion-content">
+                        <p>Comprehensive compliance frameworks including HIPAA, GDPR, SOX, and PCI-DSS. Our security-first approach ensures your data and operations meet the highest industry standards while maintaining operational efficiency.</p>
                     </div>
                 </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="300" onclick="openModal('finance')">
-                    <img src="https://images.unsplash.com/photo-1444653389962-8149286c578a?w=600&h=400&fit=crop" alt="Financial Services" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-chart-line industry-icon"></i>
-                        <h3 class="industry-title">Financial Services</h3>
-                        <p class="industry-description">FinTech solutions, payment gateways, and risk management systems that ensure security and regulatory compliance.</p>
+
+                <div class="horizontal-accordion-item" onclick="toggleHorizontalAccordion(this)">
+                    <div class="horizontal-accordion-header">
+                        <div class="horizontal-accordion-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h3 class="horizontal-accordion-title">Scalable & Future-Ready Architecture</h3>
+                    </div>
+                    <div class="horizontal-accordion-content">
+                        <p>Cloud-native architectures built for growth and adaptability. Our solutions leverage microservices, containerization, and modern DevOps practices to ensure your systems can evolve with your business needs.</p>
                     </div>
                 </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="400" onclick="openModal('education')">
-                    <img src="https://images.unsplash.com/photo-1574180566232-aaad1b5b8450?w=600&h=400&fit=crop" alt="Education" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-graduation-cap industry-icon"></i>
-                        <h3 class="industry-title">Education & E-Learning</h3>
-                        <p class="industry-description">Learning management systems, educational apps, and virtual classrooms that enhance the learning experience.</p>
+
+                <div class="horizontal-accordion-item" onclick="toggleHorizontalAccordion(this)">
+                                       <div class="horizontal-accordion-header">
+                        <div class="horizontal-accordion-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3 class="horizontal-accordion-title">Agile Methodology & Rapid Deployment</h3>
+                    </div>
+                    <div class="horizontal-accordion-content">
+                        <p>Proven agile development processes that deliver value quickly while maintaining quality. Our iterative approach allows for continuous feedback, rapid prototyping, and accelerated time-to-market for your digital initiatives.</p>
                     </div>
                 </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="500" onclick="openModal('retail')">
-                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop" alt="Retail" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-shopping-cart industry-icon"></i>
-                        <h3 class="industry-title">Retail & E-Commerce</h3>
-                        <p class="industry-description">Omnichannel retail solutions, inventory management, and personalized shopping experiences that boost sales.</p>
+
+                <div class="horizontal-accordion-item" onclick="toggleHorizontalAccordion(this)">
+                    <div class="horizontal-accordion-header">
+                        <div class="horizontal-accordion-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="horizontal-accordion-title">24/7 Global Support & Maintenance</h3>
                     </div>
-                </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="600" onclick="openModal('manufacturing')">
-                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="Manufacturing" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-industry industry-icon"></i>
-                        <h3 class="industry-title">Manufacturing & Industrial</h3>
-                        <p class="industry-description">IoT solutions, automation systems, and supply chain optimization that improve efficiency and reduce costs.</p>
-                    </div>
-                </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="700" onclick="openModal('automotive')">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop" alt="Automotive" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-car industry-icon"></i>
-                        <h3 class="industry-title">Automotive</h3>
-                        <p class="industry-description">Connected vehicle solutions, fleet management systems, and smart mobility platforms for the future of transportation.</p>
-                    </div>
-                </div>
-                
-                <div class="industry-card loading" data-aos="fade-up" data-aos-delay="800" onclick="openModal('realestate')">
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop" alt="Real Estate" class="industry-image">
-                    <div class="industry-overlay">
-                        <i class="fas fa-building industry-icon"></i>
-                        <h3 class="industry-title">Real Estate & PropTech</h3>
-                        <p class="industry-description">Property management platforms, virtual tours, and smart building solutions that revolutionize real estate.</p>
+                    <div class="horizontal-accordion-content">
+                        <p>Round-the-clock monitoring, support, and maintenance services across multiple time zones. Our dedicated support team ensures maximum uptime and performance optimization for your critical business systems.</p>
                     </div>
                 </div>
             </div>
-        </div>    </section>
-
-    <!-- Expertise Showcase -->
-    <section id="expertise" class="section expertise-showcase">
-        <div class="container">
-            <div class="expertise-content">
-                <div class="expertise-text" data-aos="fade-right">
-                    <h2 class="expertise-title">Proven Industry Leadership</h2>
-                    <p class="expertise-description">
-                        Our team combines deep industry knowledge with technical excellence to deliver solutions that not only meet current needs but anticipate future challenges. We've successfully guided organizations through complex digital transformations across multiple sectors.
-                    </p>
-                    
-                    <ul class="expertise-features">
-                        <li><i class="fas fa-check"></i> Industry-specific expertise and best practices</li>
-                        <li><i class="fas fa-check"></i> Regulatory compliance and security standards</li>
-                        <li><i class="fas fa-check"></i> Scalable architecture and future-ready solutions</li>
-                        <li><i class="fas fa-check"></i> Agile methodology and rapid deployment</li>
-                        <li><i class="fas fa-check"></i> 24/7 support and maintenance services</li>
-                    </ul>
-                    
-                    <a href="#contact" class="expertise-cta">
-                        Start Your Transformation
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                
-                <div class="expertise-visual" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop" alt="Team Collaboration" class="expertise-image">
-                    <div class="expertise-badge">
-                        10+ Years Experience
-                    </div>
-                </div>
+            
+            <div class="expertise-cta-container" data-aos="fade-up" data-aos-delay="400">
+                <a href="#contact" class="expertise-cta">
+                    Start Your Transformation
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -1737,14 +2323,52 @@
             if (e.target === this) {
                 closeModal();
             }
-        });
-
-        // Close modal on escape key
+        });        // Close modal on escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
-        });        // Initialize AOS
+        });        // Accordion Functions
+        function toggleAccordion(element) {
+            const accordionItem = element.parentElement;
+            const accordionContent = accordionItem.querySelector('.accordion-content');
+            const isActive = accordionItem.classList.contains('active');
+            
+            // Close all other accordion items
+            const allAccordionItems = document.querySelectorAll('.accordion-item');
+            allAccordionItems.forEach(item => {
+                if (item !== accordionItem) {
+                    item.classList.remove('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = '0';
+                }
+            });
+            
+            // Toggle current accordion item
+            if (isActive) {
+                accordionItem.classList.remove('active');
+                accordionContent.style.maxHeight = '0';
+            } else {
+                accordionItem.classList.add('active');
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px';
+            }
+        }
+
+        // Horizontal Accordion Functions
+        function toggleHorizontalAccordion(element) {
+            const allItems = document.querySelectorAll('.horizontal-accordion-item');
+            const isActive = element.classList.contains('active');
+            
+            // Remove active class from all items
+            allItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add active class to clicked item if it wasn't already active
+            if (!isActive) {
+                element.classList.add('active');
+            }
+        }// Initialize AOS
         AOS.init({
             duration: 1000,
             once: true,
@@ -2105,7 +2729,47 @@
                     }
                 );
             });
+        }        // Central infographic hover effect
+        let centralInfographic = document.querySelector('.central-infographic');
+        if (centralInfographic) {
+            centralInfographic.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            centralInfographic.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
         }
+
+        // Intersection Observer for fade-in animations
+        const fadeObserverOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, fadeObserverOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            fadeObserver.observe(el);
+        });
+
+        // Enhanced hover effects for industry items
+        document.querySelectorAll('.industry-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
     </script>
 </body>
 </html>
